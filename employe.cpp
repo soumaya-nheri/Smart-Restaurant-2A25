@@ -76,6 +76,6 @@ QSqlQueryModel*Employe::afficher()
          model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom d'employe"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Prenom d'employe"));
            model->setHeaderData(1, Qt::Horizontal, QObject::tr("Salaire d'employe"));
-             model->setHeaderData(1, Qt::Horizontal, QObject::tr("date "));
+             model->setHeaderData(1, Qt::Horizontal, QObject::tr("dateS "));
            return model;
 }

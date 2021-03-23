@@ -6,7 +6,7 @@
 
 
 
-Employe::Employe()
+employe::employe()
 {
 id=0;
 nom="";

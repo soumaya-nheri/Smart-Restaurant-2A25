@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>80</y>
+      <width>1051</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="accueil"/>
+    <widget class="QWidget" name="gestionproduit"/>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>0</y>
+      <width>701</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>40</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+     </property>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>86</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+     </property>
+     <property name="text">
+      <string>Nom </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>170</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+     </property>
+     <property name="text">
+      <string>Salaire</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BA">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>260</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 15px;
+	padding: 10px;
+
+}
+
+
+QPushButton::disabled
+{
+	background-color: #5c5c5c;
+
+}
+
+
+QPushButton::hover
+{
+	background-color: #5564f2;
+
+}
+
+
+QPushButton::pressed
+{
+	background-color: #3d4ef2;
+
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Ajouter</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>40</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>90</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>170</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>220</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Date </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="linemarque">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>140</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="date1">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>210</y>
+       <width>110</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>140</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+     </property>
+     <property name="text">
+      <string>prenom</string>
+     </property>
+    </widget>
+    <widget class="QStackedWidget" name="stackedWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>820</x>
+       <y>190</y>
+       <width>1051</width>
+       <height>621</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="accueil_2"/>
+     <widget class="QWidget" name="gestionproduit_2"/>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>190</y>
+       <width>91</width>
+       <height>391</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Menu</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_9">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="Iheb_3">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/Files/stock.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/colab/icolab.png</normaloff>:/colab/icolab.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_43">
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 7px;</string>
+          </property>
+          <property name="text">
+           <string>GESTION DE STOCK</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Barkia_3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/reservation/ireservation.png</normaloff>:/reservation/ireservation.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_44">
+          <property name="text">
+           <string>  Reservation</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Elaa_3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/staff/istaff.png</normaloff>:/staff/istaff.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_45">
+          <property name="text">
+           <string>      Staff</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Sara_3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/stock/istock.png</normaloff>:/stock/istock.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_46">
+          <property name="text">
+           <string>      Stock</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="configuration_3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/configuration/iconfiguration.png</normaloff>:/configuration/iconfiguration.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_47">
+          <property name="text">
+           <string> Configuration</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="logout_button_3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/log/ilog.png</normaloff>:/log/ilog.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTabWidget" name="b_supprimer">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>0</y>
+       <width>841</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabBar::tab 
+{font-color:#454544;
+	font-size: 8pt;
+	font-weight: bold;
+	width: 160px;
+    border: 1px solid #444;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    margin-right: -1px;
+
+}
+
+QTabWidget::pane 
+{
+    border: 1px solid qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));;
+
+}
+
+QTabBar::tab:last
+{
+    margin-right: 0; 
+
+}
+
+QTabBar::tab:first:!selected
+{
+	margin-left: 0px; 
+
+}
+
+QTabBar::tab:!selected
+{
+    color: #000;
+    margin-top: 4px;
+    background-color: #f6f6f6;
+
+}
+
+QTabBar::tab:selected
+{
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(54, 197, 177, 255),stop:1 rgba(11, 135, 111, 255));
+	color: #fff;
+
+}
+
+QTabBar::tab:!selected:hover
+{
+    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
+
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Ajouter employes</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>-70</x>
+         <y>10</y>
+         <width>691</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>40</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+        </property>
+        <property name="text">
+         <string>id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>86</y>
+          <width>81</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+        </property>
+        <property name="text">
+         <string>Nom </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>170</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+        </property>
+        <property name="text">
+         <string>Salaire</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="BA_2">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>260</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 15px;
+	padding: 10px;
+
+}
+
+
+QPushButton::disabled
+{
+	background-color: #5c5c5c;
+
+}
+
+
+QPushButton::hover
+{
+	background-color: #5564f2;
+
+}
+
+
+QPushButton::pressed
+{
+	background-color: #3d4ef2;
+
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>40</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>90</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>170</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+	background-color: #c2c7d5;
+	color: #2a547f;
+	border: none;
+	padding: 5px;
+</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>220</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Date </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="linemarque_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>140</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="date1_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>210</y>
+          <width>110</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>140</y>
+          <width>71</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;</string>
+        </property>
+        <property name="text">
+         <string>prenom</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Afficher employes</string>
+      </attribute>
+      <widget class="QTableView" name="tab_employe">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>235</x>
+         <y>30</y>
+         <width>381</width>
+         <height>331</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="tri_emp_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>50</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Trier par nom</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="tri_emp_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>120</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Trier par Date</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="tri_emp_4">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>190</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Trier par Prenom</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Supprimer employes</string>
+      </attribute>
+      <widget class="QLineEdit" name="supp">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>40</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="P_supprimer">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>210</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>supprimer</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>modifier</string>
+      </attribute>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>322</y>
+         <width>75</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>modifier</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="modif1">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>80</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="modif2">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>140</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="modif3">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>190</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>90</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>140</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>190</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>prenom</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>30</y>
+         <width>191</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>30</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>chercher id</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="modif4">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>230</y>
+         <width>110</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="modif5">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>270</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Chercher </string>
+      </attribute>
+      <widget class="QTableView" name="tabchercher">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>20</y>
+         <width>281</width>
+         <height>261</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>60</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>150</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>prenom</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>210</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>salaire</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linechercher1">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>80</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linechercher2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>170</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linechercher3">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>240</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="chercher">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>300</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>chercher</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>91</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="Iheb_2">
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/Files/stock.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/colab/icolab.png</normaloff>:/colab/icolab.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_38">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent;
+	color: #454544;
+	font-weight: bold;
+	font-size: 7px;</string>
+         </property>
+         <property name="text">
+          <string>GESTION DE STOCK</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Barkia_2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/reservation/ireservation.png</normaloff>:/reservation/ireservation.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_39">
+         <property name="text">
+          <string>  Reservation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Elaa_2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/staff/istaff.png</normaloff>:/staff/istaff.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_40">
+         <property name="text">
+          <string>      Staff</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Sara_2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/stock/istock.png</normaloff>:/stock/istock.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_41">
+         <property name="text">
+          <string>      Stock</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="configuration_2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/configuration/iconfiguration.png</normaloff>:/configuration/iconfiguration.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_42">
+         <property name="text">
+          <string> Configuration</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="logout_button_2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/log/ilog.png</normaloff>:/log/ilog.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -3,6 +3,7 @@
 #include "evenement.h"
 
 #include <QDialog>
+#include <QSystemTrayIcon>
 
 namespace Ui {
 class EvenementInter;
@@ -23,11 +24,18 @@ private slots:
 
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
+    void on_comboBox_modif_currentIndexChanged(const QString &arg1);
+
+    void on_modifiebtn_clicked();
+
+    void refresh();
+
 private:
     Ui::EvenementInter *ui;
     Evenement tmpevent;
 
     QSqlTableModel * model;
+    QSystemTrayIcon * trayIcon;
 
 };
 

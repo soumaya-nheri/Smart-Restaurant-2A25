@@ -21,9 +21,11 @@ public:
     QDate get_Dateevent();
 
     bool ajouter();
+    bool modifier(QString,QString,QDate,QString);
     bool supprimer(int);
 
     QSqlQueryModel * afficher();
+    QSqlQueryModel * triafficher();
     QSqlTableModel * moodel();
     QSqlQueryModel * remplircomboevent();
     QSqlQuery request(QString);

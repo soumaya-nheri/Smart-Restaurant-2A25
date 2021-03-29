@@ -1,0 +1,12 @@
+INPUT(
+./debug\connection.o
+./debug\evenement.o
+./debug\evenementinter.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\promointer.o
+./debug\promotion.o
+./debug\moc_evenementinter.o
+./debug\moc_mainwindow.o
+./debug\moc_promointer.o
+);

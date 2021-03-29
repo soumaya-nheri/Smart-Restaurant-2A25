@@ -4,6 +4,7 @@
 #include "connection.h"
 #include <QMessageBox>
 
+
 EvenementInter::EvenementInter(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EvenementInter)
@@ -15,17 +16,25 @@ EvenementInter::EvenementInter(QWidget *parent) :
     //Column size
     ui->tablemodifier->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    //tabmodif
-    Connection c;
-    model = new QSqlTableModel(this);
-    model = tmpevent.moodel();
-    ui->tablemodifier->setModel(model);
-    ui->comboBox->setModel(tmpevent.remplircomboevent());
+    //refresh combobox + tableau
+    refresh();
+
+
 }
 
 EvenementInter::~EvenementInter()
 {
     delete ui;
+}
+
+void EvenementInter::refresh()
+{
+
+    //remplir tableau
+    ui->tablemodifier->setModel(tmpevent.afficher());
+
+    ui->comboBox->setModel(tmpevent.remplircomboevent());
+    ui->comboBox_modif->setModel(tmpevent.remplircomboevent());
 }
 
 void EvenementInter::on_AjouterBouton_clicked()
@@ -34,24 +43,18 @@ void EvenementInter::on_AjouterBouton_clicked()
     bool test = event.ajouter();
     if(test)
 {
-        QMessageBox::information(nullptr, QObject::tr("Ajouter un Client"),
-        QObject::tr("Client ajouté.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+        //NOTIFICATION
+        trayIcon = new QSystemTrayIcon(this);
+        trayIcon->setVisible(true);
+        trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_DesktopIcon));
+        trayIcon->setToolTip("Ajouter" "\n"
+                        "Ajouter avec sucées");
+        trayIcon->showMessage("Ajouter","Ajouter avec sucées",QSystemTrayIcon::Information,1500);
+        trayIcon->show();
 
-        }
-          else
-          {
-              QMessageBox::critical(nullptr, QObject::tr("Ajouter un Client"),
-                          QObject::tr("Erreur !.\n"
-                                      "Click Cancel to exit."), QMessageBox::Cancel);
-          }
-    //tabmodif
-    Connection c;
-    model = new QSqlTableModel(this);
-    model = tmpevent.moodel();
-    ui->tablemodifier->setModel(model);
-    //Combo
-    ui->comboBox->setModel(tmpevent.remplircomboevent());
+    refresh();
 
+}
 }
 
 
@@ -65,19 +68,18 @@ void EvenementInter::on_SupprimerBouton_clicked()
         bool test=tmpevent.supprimer(ui->comboBox->currentText().toInt());
         if(test)
         {
-            //refresh
-            //tabmodif
-            Connection c;
-            model = new QSqlTableModel(this);
-            model = tmpevent.moodel();
-            ui->tablemodifier->setModel(model);
-            //Combo
-            ui->comboBox->setModel(tmpevent.remplircomboevent());
+            //refresh combobox + tableau
+            refresh();
 
-            //message
-            QMessageBox::information(this, QObject::tr("Supprimer un Evenement"),
-                        QObject::tr("Evenement supprimé.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+            //NOTIFICATION
+            trayIcon = new QSystemTrayIcon(this);
+            trayIcon->setVisible(true);
+            trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_DesktopIcon));
+            trayIcon->setToolTip("Suppriemr" "\n"
+                            "Suppriemr avec sucées");
+            trayIcon->showMessage("Suppriemr","Suppriemr avec sucées",QSystemTrayIcon::Warning,1500);
+            trayIcon->show();
+
         }
         else
         {
@@ -108,3 +110,50 @@ void EvenementInter::on_comboBox_currentIndexChanged(const QString &arg1)
     }
 
 }
+
+void EvenementInter::on_comboBox_modif_currentIndexChanged(const QString &arg1)
+{
+    QSqlQuery query;
+
+    QString id = ui->comboBox_modif->currentText();
+
+    query =tmpevent.request(id);
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            ui->nommodif->setText(query.value(1).toString());
+            ui->descmodif->setText(query.value(2).toString());
+            ui->datemodif->setDate(query.value(3).toDate());
+        }
+    }
+
+}
+
+
+void EvenementInter::on_modifiebtn_clicked()
+{
+    if((ui->nommodif->text() != "") &&(ui->descmodif->text() != ""))
+    {
+        if(tmpevent.modifier(ui->nommodif->text(),ui->descmodif->text(),ui->datemodif->date(),ui->comboBox_modif->currentText()))
+        {
+            //refresh combobox + tableau
+            refresh();
+
+            //NOTIFICATION
+            trayIcon = new QSystemTrayIcon(this);
+            trayIcon->setVisible(true);
+            trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_DesktopIcon));
+            trayIcon->setToolTip("Modifier" "\n"
+                            "Modifier avec sucées");
+            trayIcon->showMessage("Modifier","Modifier avec sucées",QSystemTrayIcon::Warning,1500);
+            trayIcon->show();
+
+
+        }
+    }
+
+
+
+}
+

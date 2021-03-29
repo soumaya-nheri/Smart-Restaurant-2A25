@@ -28,7 +28,7 @@ Evenement::Evenement(QString nom,QString description,QDate dateevent)
   this->dateevent=dateevent;
 }
 
-//SETTERS
+//GETTERS
 int Evenement::get_Id(){return  id;}
 QString Evenement::get_Nom(){return  nom;}
 QString Evenement::get_Description(){return  description;}
@@ -40,10 +40,28 @@ bool Evenement::ajouter()
 {
 QSqlQuery query;
 
-query.prepare("INSERT INTO EVENEMENT (nom, DESCRIPTION,DATEEVENT) "
+query.prepare("INSERT INTO EVENEMENT_RESTO (nom, DESCRIPTION,DATEEVENT) "
                     "VALUES (:nom, :description, :dateevent)");
 
 
+query.bindValue(":nom", nom);
+query.bindValue(":description", description);
+query.bindValue(":dateevent", dateevent);
+
+
+return    query.exec();
+}
+//*******MODIFIER
+
+bool Evenement::modifier(QString nom,QString description,QDate dateevent,QString id)
+{
+QSqlQuery query;
+
+query.prepare("UPDATE EVENEMENT_RESTO SET nom= :nom, DESCRIPTION= :description,DATEEVENT= :dateevent "
+                    " WHERE  ID = :id ");
+
+
+query.bindValue(":id", id);
 query.bindValue(":nom", nom);
 query.bindValue(":description", description);
 query.bindValue(":dateevent", dateevent);
@@ -57,7 +75,7 @@ return    query.exec();
 QSqlQueryModel * Evenement::afficher()
 {QSqlQueryModel * model= new QSqlQueryModel();
 
-model->setQuery("select * from EVENEMENT");
+model->setQuery("select * from EVENEMENT_RESTO");
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
 model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("description"));
@@ -67,13 +85,29 @@ model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date evenement"));
     return model;
 }
 
+//******AFFICHER TRI
+
+QSqlQueryModel * Evenement::triafficher()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from client order by numClient");
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numero client"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("Monton à payer"));
+
+
+    return model;
+}
+
+
+
 //*******SUPPRIMPER
 
 bool Evenement::supprimer(int idd)
 {
 QSqlQuery query;
 QString res= QString::number(idd);
-query.prepare("Delete from EVENEMENT where ID = :id ");
+query.prepare("Delete from EVENEMENT_RESTO where ID = :id ");
 query.bindValue(":id", res);
 return    query.exec();
 }
@@ -85,13 +119,12 @@ QSqlTableModel * Evenement::moodel()
 {
     QSqlTableModel * model  =new QSqlTableModel();
 
-model->setTable("EVENEMENT");
+model->setTable("EVENEMENT_RESTO");
 model->select();
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
 model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("Description"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date evenement"));
-model->setHeaderData(4, Qt::Horizontal, QObject::tr("Emplacement"));
 
 return model;
 }
@@ -102,7 +135,7 @@ QSqlQueryModel * Evenement::remplircomboevent()
 {
     QSqlQueryModel * mod= new QSqlQueryModel();
     QSqlQuery query;
-    query.prepare("select ID from EVENEMENT");
+    query.prepare("select ID from EVENEMENT_RESTO");
     query.exec();
     mod->setQuery(query);
     return mod;
@@ -112,7 +145,7 @@ QSqlQueryModel * Evenement::remplircomboevent()
 QSqlQuery Evenement::request(QString id)
 {
     QSqlQuery query;
-    query.prepare("select * from EVENEMENT where ID= '"+id+"'");
+    query.prepare("select * from EVENEMENT_RESTO where ID= '"+id+"'");
     query.addBindValue(id);
     query.exec();
     return query;

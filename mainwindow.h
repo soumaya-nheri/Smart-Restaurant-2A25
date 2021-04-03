@@ -42,6 +42,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_gestion1_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;

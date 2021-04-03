@@ -82,14 +82,14 @@ QTabBar::tab:!selected:hover
      <widget class="QTabWidget" name="b_supprimer">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>130</x>
         <y>20</y>
-        <width>781</width>
+        <width>651</width>
         <height>431</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -355,6 +355,45 @@ text-align: left;
          <string>Trier par nom</string>
         </property>
        </widget>
+       <widget class="QToolBox" name="toolBox">
+        <property name="geometry">
+         <rect>
+          <x>-30</x>
+          <y>-10</y>
+          <width>591</width>
+          <height>371</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_6">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>591</width>
+           <height>315</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Page 1</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="page_7">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>591</width>
+           <height>315</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Page 2</string>
+         </attribute>
+        </widget>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -526,7 +565,7 @@ QTabBar::tab:!selected:hover
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">

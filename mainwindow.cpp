@@ -270,7 +270,11 @@ void MainWindow::on_pushButton_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_pushButton_2_clicked()
+/*void MainWindow::on_pushButton_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+}
+*/
+void MainWindow::on_gestion1_clicked()
+{ui->stackedWidget->setCurrentIndex(0);
 }

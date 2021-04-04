@@ -30,6 +30,7 @@ SOURCES += \
     ingredient.cpp \
         main.cpp \
     mainwindow.cpp \
+    reservation.cpp\
 
 
 HEADERS += \
@@ -38,6 +39,7 @@ HEADERS += \
     ingredient.h \
     mainwindow.h \
        connection.h \
+    reservation.h\
 
 
 FORMS += \

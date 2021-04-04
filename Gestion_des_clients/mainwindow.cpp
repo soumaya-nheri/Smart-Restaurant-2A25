@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include"ingredient.h"
 #include"client.h"
+#include"reservation.h"
 #include<QString>
 #include <QMessageBox>
 
@@ -10,8 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->lineEdit->setValidator(new QIntValidator(0, 9999999, this));
-    ui->tab_ingredient->setModel(I.afficher());
+     ui->tab_menu_2->setModel(R.afficherreservation());
       ui->tab_menu->setModel(M.afficherclient());
 }
 
@@ -20,50 +20,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_BA_clicked()
-{
 
-    int id=ui->lineEdit->text().toInt();
-    QString nom=ui->lineEdit_2->text();
-     int quantite=ui->lineEdit_5->text().toInt();
-     Ingredient I(id,nom,quantite);
-     bool test=I.ajouter();
-     if(test)
-     {
-         QMessageBox::information(nullptr, QObject::tr("ok"),
-                     QObject::tr("ajout effectuer.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
-         ui->tab_ingredient->setModel(I.afficher());
-
-
- }
-     else
-         QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                     QObject::tr("ajout non effectuer.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
-
-}
-
-
-
-void MainWindow::on_P_supprimer_clicked()
-{
-    Ingredient I1;
-    I1.setid(ui->supp->text().toInt());
-    bool test=I1.supprimer(I1.getid());
-    if(test)
-    {
-        QMessageBox::information(nullptr, QObject::tr("ok"),
-                    QObject::tr("suppression effectuer.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-        ui->tab_ingredient->setModel(I.afficher());
-
-}
-    else
-        QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                    QObject::tr("suppression non effectuer.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-}
 
 
 
@@ -179,3 +136,117 @@ void MainWindow::on_cherchermenu_clicked()
 
 
 
+
+
+
+void MainWindow::on_BAmenu_2_clicked()
+{
+    int id_client=ui->linemenu1_2->text().toInt();
+    int id_reservation=ui->linemenu2_2->text().toInt();
+     QString date_res=ui->linemenu3_2->text();
+
+     Reservation R( id_client,id_reservation, date_res);
+     bool test= R.ajouterreservation();
+     if(test)
+     {
+         QMessageBox::information(nullptr, QObject::tr("ok"),
+                     QObject::tr("ajout effectuer.\n"
+                                 "Click Cancel to exit."), QMessageBox::Cancel);
+         ui->tab_menu_2->setModel(  R.afficherreservation());
+         ui->linemenu1_2->setText("");
+          ui->linemenu2_2->setText("");
+                ui->linemenu3_2->setText("");
+
+}
+}
+
+void MainWindow::on_P_supprimer_4_clicked()
+{
+
+    Reservation R1;
+    R1.setid_reservation(ui->supp_4->text().toInt());
+    bool test=R1.supprimerreservation(R1.getid_reservation());
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("suppression effectuer.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tab_menu_2->setModel(R.afficherreservation());
+
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("suppression non effectuer.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_modifmenub_2_clicked()
+{
+    int id_client=ui->modifmenu_2->text().toInt();
+    int id_reservation=ui->modifmenu2_2->text().toInt();
+    QString date_res=ui->modifmenu3_2->text();
+
+                  Reservation R(id_client, id_reservation,date_res);
+
+         bool test = R.modifierreservation(id_client, id_reservation,date_res);
+
+
+         if(test)
+
+         {
+              ui->tab_menu_2->setModel(R.afficherreservation());
+             QMessageBox::information(nullptr, QObject::tr("update "),
+                         QObject::tr("reservation modifiée \n"
+         "Click Cancel to exit."), QMessageBox::Cancel);}
+         else
+             QMessageBox::critical(nullptr, QObject::tr("update "),
+                         QObject::tr("menu non modifie\n"
+         "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_tab_menu_2_clicked(const QModelIndex &index)
+{
+ ui->modifmenu_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),0)).toString() );
+   ui->modifmenu2_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),1)).toString() );
+ ui->modifmenu3_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),2)).toString() );
+
+}
+
+void MainWindow::on_trimenu_4_clicked()
+{
+    ui->tab_menu_2->setModel(R.trierreservation());
+}
+
+void MainWindow::on_trimenu_5_clicked()
+{
+      ui->tab_menu_2->setModel(R.trierreservation2());
+}
+
+void MainWindow::on_cherchermenu_2_clicked()
+{
+    int id_client =ui->linecherchermenu_2->text().toUInt();
+    int id_reservation =ui->linecherchermenu2_2->text().toInt();
+
+
+        ui->tabcherchermenu_2->setModel(R.chercherreservation( id_client,id_reservation)) ;
+}
+
+void MainWindow::on_BAmenu_3_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+void MainWindow::on_BAmenu_4_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+void MainWindow::on_BAmenu_6_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
+
+void MainWindow::on_BAmenu_5_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
+}

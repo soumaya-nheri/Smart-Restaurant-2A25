@@ -1,0 +1,1365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Livrasion</class>
+ <widget class="QMainWindow" name="Livrasion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1060</width>
+    <height>481</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Livrasion</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="pb_livreur">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>93</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Livreur</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>93</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Livraison</string>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="sw_main">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>851</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Livreur</string>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tw_livraur">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>731</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane { /* The tab widget frame */
+border-top: 5px solid white ;
+}
+/* Style the tab using the tab sub-control. Note that it reads QTabBar not QTabWidget */
+QTabBar::tab {
+background: #FFFFF;
+border: 2px solid #87CEEB;
+border-bottom-color: #87CEEB; /* same as the pane color */
+border-top-left-radius:8px;
+border-top-right-radius: 8px;
+min-width: 140px;
+padding: 8px;
+color: #696969;
+
+
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #DCDCDC, stop: 0.4 #C0C0C0, stop: 0.5 #A9A9A9, stop: 1.0 #A9A9A9);
+}
+QTabBar::tab:selected {
+border-color: #9B9B9B;
+border-bottom-color: #87CEEB; /* same as pane color */
+color: #FFFFFF;
+;
+
+}
+QTabBar::tab:!selected {
+margin-top: 2px; /* make non-selected tabs look smaller */
+}
+QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="ajouter_livreur">
+       <attribute name="title">
+        <string>Ajouter</string>
+       </attribute>
+       <widget class="QPushButton" name="pb_ajouter_livreur">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_id_ajouter_livreur">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>31</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_nom_ajouter_livreur">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>71</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_prenom_ajouter_livreur">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>111</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_salaire_ajouter_livreur">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>151</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>130</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>170</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Salaire</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="afficher_livreur">
+       <attribute name="title">
+        <string>Afficher</string>
+       </attribute>
+       <widget class="QLineEdit" name="le_search_livreur">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>1</y>
+          <width>281</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tv_livreur">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>641</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_sort_livreur">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>11</y>
+          <width>151</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="modifier_livreur">
+       <attribute name="title">
+        <string>Modifier</string>
+       </attribute>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>40</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>160</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Salaire</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>120</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_prenom_modifier_livreur">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>100</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_modifer_livreur">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Modifer</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>80</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_nom_modfier_livreur">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>60</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_salaire_modifer_livreur">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>140</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_modfier_livreur">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>21</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="supprimer_livreur">
+       <attribute name="title">
+        <string>Supprimer</string>
+       </attribute>
+       <widget class="QComboBox" name="cb_supp_livreur">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>41</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_supp_livreur">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>60</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>livraion</string>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tw_livraur_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>731</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane { /* The tab widget frame */
+border-top: 5px solid white ;
+}
+/* Style the tab using the tab sub-control. Note that it reads QTabBar not QTabWidget */
+QTabBar::tab {
+background: #FFFFF;
+border: 2px solid #87CEEB;
+border-bottom-color: #87CEEB; /* same as the pane color */
+border-top-left-radius:8px;
+border-top-right-radius: 8px;
+min-width: 140px;
+padding: 8px;
+color: #696969;
+
+
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #DCDCDC, stop: 0.4 #C0C0C0, stop: 0.5 #A9A9A9, stop: 1.0 #A9A9A9);
+}
+QTabBar::tab:selected {
+border-color: #9B9B9B;
+border-bottom-color: #87CEEB; /* same as pane color */
+color: #FFFFFF;
+;
+
+}
+QTabBar::tab:!selected {
+margin-top: 2px; /* make non-selected tabs look smaller */
+}
+QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="ajouter_livreur_2">
+       <attribute name="title">
+        <string>Ajouter</string>
+       </attribute>
+       <widget class="QPushButton" name="pb_liv_ajout">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>170</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_id_liv_ajout">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>31</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_adresse_liv_ajout">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>71</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Adresse</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>150</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="te_des_liv_ajout">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>140</y>
+          <width>201</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_commande_ajout">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>31</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_livreur_ajout">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>71</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>50</y>
+          <width>131</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id_commande</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>90</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id_livreur</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="afficher_livreur_2">
+       <attribute name="title">
+        <string>Afficher</string>
+       </attribute>
+       <widget class="QLineEdit" name="le_search_liv">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>1</y>
+          <width>281</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tv_liv">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>641</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_sort_liv">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>1</y>
+          <width>151</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="modifier_livreur_2">
+       <attribute name="title">
+        <string>Modifier</string>
+       </attribute>
+       <widget class="QComboBox" name="cb_livreur_modif">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>51</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_adresse_liv_modif">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>51</y>
+          <width>113</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;
+}</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_commande_modif">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>11</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>30</y>
+          <width>131</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id_commande</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_liv_modif">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>130</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="te_des_liv_modif">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>140</y>
+          <width>201</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>70</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Adresse</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>70</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 13px;
+border:none;</string>
+        </property>
+        <property name="text">
+         <string>Id_livreur</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_liv_modif">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>11</y>
+          <width>111</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="supprimer_livreur_2">
+       <attribute name="title">
+        <string>Supprimer</string>
+       </attribute>
+       <widget class="QComboBox" name="cb_supp_liv">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>41</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(250, 211, 0);
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ADD8E6;
+  color: #FFFFFF;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_supp_liv">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>60</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1060</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

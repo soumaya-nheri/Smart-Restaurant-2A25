@@ -7,6 +7,7 @@
 #include<QStringList>
 #include<QDate>
 #include "src/SmtpMime"
+#include "notif.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -47,9 +48,11 @@ void MainWindow::on_BA_clicked()
      {
          P.fillComboE(ui->cb_emp);
          P.fillComboE(ui->cb_emp_2);
-         QMessageBox::information(nullptr, QObject::tr("ok"),
+        /*QMessageBox::information(nullptr, QObject::tr("ok"),
                      QObject::tr("ajout effectuer.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
+                                 "Click Cancel to exit."), QMessageBox::Cancel)*/;
+         notif n("Error","This Account is Already Exist ");
+                                  n.afficher();
          ui->tab_employe->setModel(E.afficher());
          ui->lineEdit->setText("");
           ui->lineEdit_3->setText("");

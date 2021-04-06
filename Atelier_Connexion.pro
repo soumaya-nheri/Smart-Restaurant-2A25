@@ -30,6 +30,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    notif.cpp \
     profils.cpp \
     src/emailaddress.cpp \
     src/mimeattachment.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     Employe.h \
         mainwindow.h \
     connection.h \
+    notif.h \
     profils.h \
     src/emailaddress.h \
     src/mimeattachment.h \

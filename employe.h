@@ -1,7 +1,6 @@
 #ifndef EMPLOYE_H
 #define EMPLOYE_H
 
-
 #include<QDate>
 #include<QString>
 #include<QSqlQueryModel>
@@ -28,6 +27,23 @@ Employe(int,QString,QString,QDate,int);
      bool ajouter();
      QSqlQueryModel* afficher();
      bool supprimer(int);
+      Employe recherche_Id(int);
+     bool modifier(int );
+QStringList liste();
+  QSqlQueryModel* trier1();
+ QSqlQueryModel* trier();
+ QSqlQueryModel* trier2();
+ QSqlQueryModel * chercher_emp_avancee(QString nom,QString prenom);
+ QSqlQueryModel * chercher_emp_nom_id(const QString &str);
+ QSqlQueryModel * chercher_employe_par_nom( QString);
+ QSqlQueryModel * chercher_employe_par_prenom(QString);
+ QSqlQueryModel * chercher_employe_par_id( int);
+  QSqlQueryModel* Filter(int);
+ QSqlQueryModel* rechercher(QString str,QString str1,int i); ///const QString & QString
+ QStringList listemploye();
+  int calcul_employe(int,int);
+
+  QSqlQueryModel* search(QString);
 private:
     int id;
     QString nom;
@@ -37,4 +53,5 @@ private:
 
 
 };
+
 #endif // EMPLOYE_H

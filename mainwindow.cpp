@@ -6,6 +6,8 @@
 #include <QComboBox>
 #include<QStringList>
 #include<QDate>
+#include "src/SmtpMime"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,6 +16,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->lineEdit->setValidator(new QIntValidator(0, 9999999, this));
     ui->tab_employe->setModel(E.afficher());
+    ui->sw_main->setCurrentIndex(0);
+    ui->tv_profile->setModel(P.afficher());
+    P.fillComboE(ui->cb_emp);
+    P.fillComboE(ui->cb_emp_2);
+    P.fillComboP(ui->cb_login_modif);
+    P.fillComboP(ui->cb_login_supp);
+
 }
 
 MainWindow::~MainWindow()
@@ -36,6 +45,8 @@ void MainWindow::on_BA_clicked()
      bool test=E.ajouter();
      if(test)
      {
+         P.fillComboE(ui->cb_emp);
+         P.fillComboE(ui->cb_emp_2);
          QMessageBox::information(nullptr, QObject::tr("ok"),
                      QObject::tr("ajout effectuer.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
@@ -48,6 +59,43 @@ void MainWindow::on_BA_clicked()
          ui->comboBox->clear();
          ui->comboBox->addItems(E.liste());
 
+//*********************************** mail ************************************************************************
+
+         SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+
+         smtp.setUser("sahnoun.yosr@esprit.tn");
+         smtp.setPassword("souheila");
+
+         MimeMessage message;
+
+         EmailAddress sender("sahnoun.yosr@esprit.tn", "yosr");
+         message.setSender(&sender);
+
+         EmailAddress to("sahnoun.yosr@esprit.tn", "yosr");
+         message.addRecipient(&to);
+
+         message.setSubject(" employe ajoute ");
+
+         MimeText text;
+         text.setText("employe "+E.getnom()+" "+E.getprenom()+" "+E.getdate().toString());
+
+         message.addPart(&text);
+
+             if (!smtp.connectToHost()) {
+                 qDebug() << "Failed to connect to host!" << endl;
+             }
+
+             if (!smtp.login()) {
+                 qDebug() << "Failed to login!" << endl;
+             }
+
+             if (!smtp.sendMail(message)) {
+                 qDebug() << "Failed to send mail!" << endl;
+             }
+
+         smtp.quit();
+
+//**********************************************************************************************************
 
  }
      else
@@ -64,6 +112,8 @@ void MainWindow::on_b_supprimer_currentChanged(int index)
 
         ui->comboBox->clear();
         ui->comboBox->addItems(E.liste());
+        P.fillComboE(ui->cb_emp);
+        P.fillComboE(ui->cb_emp_2);
 }
 
 
@@ -78,6 +128,8 @@ void MainWindow::on_P_supprimer_clicked()
                     QObject::tr("suppression effectuer.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
         ui->tab_employe->setModel(E.afficher());
+        P.fillComboE(ui->cb_emp);
+        P.fillComboE(ui->cb_emp_2);
 
 }
     else
@@ -101,6 +153,7 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
         ui->modif2->setText(e.getnom());
          ui->modif3->setText(e.getprenom());
           ui->modif4->setDate(e.getdate());
+
 
 
 
@@ -166,13 +219,76 @@ void MainWindow::on_chercher_clicked()
 
     QString nom =ui->linechercher1->text();
 
-QString prenom =ui->linechercher3->text();
+QString prenom =ui->linechercher2->text();
 
-
-
-
-
-
+ui->tabchercher->setModel(E.chercher_emp_avancee(nom,prenom));
 
 }
 
+
+void MainWindow::on_pb_login_clicked()
+{
+    QString login = ui->le_login->text();
+    QString password = ui->le_password->text();
+    if(P.login(login, password)) {
+        ui->sw_main->setCurrentIndex(1);
+    }
+    else {
+        QMessageBox::critical(nullptr, QObject::tr("LOGIN FAILED"),
+                    QObject::tr("Check your login and password!\n"), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_le_search_textChanged(const QString &arg1)
+{
+    ui->tab_employe->setModel(E.search(arg1));
+}
+
+void MainWindow::on_pb_ajout_clicked()
+{
+    Profils p(ui->le_login_->text(), ui->le_password_->text(), ui->cb_emp->currentText().toInt());
+    if(p.ajouter()) {
+        ui->tv_profile->setModel(P.afficher());
+        P.fillComboP(ui->cb_login_modif);
+        P.fillComboP(ui->cb_login_supp);
+        QMessageBox::information(nullptr, QObject::tr("profile ajouter"),
+                    QObject::tr("profile ajouter!\n"), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pb_supp_clicked()
+{
+    Profils p(ui->cb_login_supp->currentText(), "", 0);
+    if(p.supprimer(0)) {
+        ui->tv_profile->setModel(P.afficher());
+        P.fillComboP(ui->cb_login_modif);
+        P.fillComboP(ui->cb_login_supp);
+        QMessageBox::information(nullptr, QObject::tr("profile supprimer"),
+                    QObject::tr("profile supprimer!\n"), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pb_modif_clicked()
+{
+    Profils p(ui->cb_login_modif->currentText(), ui->le_password_1->text(), ui->cb_emp_2->currentText().toInt());
+    if(p.modifier(0)) {
+        ui->tv_profile->setModel(P.afficher());
+        QMessageBox::information(nullptr, QObject::tr("profile supprimer"),
+                    QObject::tr("profile supprimer!\n"), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_Iheb_clicked()
+{
+    ui->st_menu->setCurrentIndex(0);
+}
+
+void MainWindow::on_Barkia_clicked()
+{
+    ui->st_menu->setCurrentIndex(1);
+}
+
+void MainWindow::on_pb_logout_clicked()
+{
+    ui->sw_main->setCurrentIndex(0);
+}

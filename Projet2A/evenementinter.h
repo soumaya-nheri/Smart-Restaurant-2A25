@@ -5,6 +5,10 @@
 #include <QDialog>
 #include <QSystemTrayIcon>
 
+#include <QtPrintSupport/QPrintDialog>
+#include <QPrinter>
+#include <QPrintPreviewDialog>
+
 namespace Ui {
 class EvenementInter;
 }
@@ -29,6 +33,8 @@ private slots:
     void on_modifiebtn_clicked();
 
     void refresh();
+
+    void on_PDF_clicked();
 
 private:
     Ui::EvenementInter *ui;

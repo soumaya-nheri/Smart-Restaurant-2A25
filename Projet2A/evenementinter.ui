@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
+    <width>834</width>
     <height>615</height>
    </rect>
   </property>
@@ -16,14 +16,14 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>30</x>
+     <y>40</y>
      <width>781</width>
      <height>571</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -125,15 +125,138 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="tab_4">
     <attribute name="title">
-     <string>Afficher Evenment</string>
+     <string>Modifier Evenement</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>100</y>
+       <width>331</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Modifier Evenment</string>
+     </property>
+     <widget class="QComboBox" name="comboBox_modif">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>20</y>
+        <width>121</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>124</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Date Evenement :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>56</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nom :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Description :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nommodif">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>60</y>
+        <width>210</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="descmodif">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>95</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>16</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID evennement</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="datemodif">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>130</y>
+        <width>211</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="modifiebtn">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>160</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Supprimer Evenement</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>30</y>
+       <x>160</x>
+       <y>110</y>
        <width>381</width>
        <height>201</height>
       </rect>
@@ -247,11 +370,16 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Afficher Evenment</string>
+    </attribute>
     <widget class="QTableView" name="tablemodifier">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>290</y>
+       <y>160</y>
        <width>741</width>
        <height>251</height>
       </rect>
@@ -260,123 +388,18 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QPushButton" name="PDF">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>331</width>
-       <height>201</height>
+       <x>570</x>
+       <y>430</y>
+       <width>131</width>
+       <height>28</height>
       </rect>
      </property>
-     <property name="title">
-      <string>Modifier Evenment</string>
+     <property name="text">
+      <string>IPRIMER PDF</string>
      </property>
-     <widget class="QComboBox" name="comboBox_modif">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>20</y>
-        <width>121</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_29">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>124</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Date Evenement :</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_28">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>56</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Nom :</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_27">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Description :</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="nommodif">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>60</y>
-        <width>210</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="descmodif">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>95</y>
-        <width>211</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>16</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ID evennement</string>
-      </property>
-     </widget>
-     <widget class="QDateEdit" name="datemodif">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>130</y>
-        <width>211</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="modifiebtn">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>160</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Modifier</string>
-      </property>
-     </widget>
     </widget>
    </widget>
   </widget>

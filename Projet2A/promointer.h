@@ -4,6 +4,10 @@
 #include <QDialog>
 #include "promotion.h"
 
+#include <QtPrintSupport/QPrintDialog>
+#include <QPrinter>
+#include <QPrintPreviewDialog>
+
 namespace Ui {
 class promointer;
 }
@@ -27,8 +31,6 @@ private slots:
 
     void on_rechercheav_cursorPositionChanged(int arg1, int arg2);
 
-    void on_comboBox_nomprod_currentIndexChanged(const QString &arg1);
-
     void on_Pourcentage_cursorPositionChanged();
 
     void on_pourcentagemodif_cursorPositionChanged(int arg1, int arg2);
@@ -40,6 +42,8 @@ private slots:
     void on_btn_modif_clicked();
 
     void on_SupprimerBouton_clicked();
+
+    void on_PDF_clicked();
 
 private:
     promotion tmppromo;

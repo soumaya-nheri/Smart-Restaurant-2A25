@@ -37,6 +37,7 @@ void EvenementInter::refresh()
     ui->comboBox_modif->setModel(tmpevent.remplircomboevent());
 }
 
+//ajouter evenement
 void EvenementInter::on_AjouterBouton_clicked()
 {
     Evenement event(ui->Nom->toPlainText(),ui->Description->toPlainText(),ui->dateEdit->date());
@@ -58,6 +59,7 @@ void EvenementInter::on_AjouterBouton_clicked()
 }
 
 
+//supprimer evenement
 void EvenementInter::on_SupprimerBouton_clicked()
 {
     QMessageBox::StandardButton reply =QMessageBox::question(this,
@@ -75,9 +77,9 @@ void EvenementInter::on_SupprimerBouton_clicked()
             trayIcon = new QSystemTrayIcon(this);
             trayIcon->setVisible(true);
             trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_DesktopIcon));
-            trayIcon->setToolTip("Suppriemr" "\n"
-                            "Suppriemr avec sucées");
-            trayIcon->showMessage("Suppriemr","Suppriemr avec sucées",QSystemTrayIcon::Warning,1500);
+            trayIcon->setToolTip("Supprimer" "\n"
+                            "Supprimer avec sucées");
+            trayIcon->showMessage("Supprimer","Supprimer avec sucées",QSystemTrayIcon::Warning,1500);
             trayIcon->show();
 
         }
@@ -91,6 +93,7 @@ void EvenementInter::on_SupprimerBouton_clicked()
     }
 
 }
+
 
 void EvenementInter::on_comboBox_currentIndexChanged(const QString &arg1)
 {
@@ -157,3 +160,60 @@ void EvenementInter::on_modifiebtn_clicked()
 
 }
 
+
+
+//PDF
+void EvenementInter::on_PDF_clicked()
+{
+
+        QString strStream;
+                   QTextStream out(&strStream);
+                   const int rowCount = ui->tablemodifier->model()->rowCount();
+                   const int columnCount =ui->tablemodifier->model()->columnCount();
+
+                   out <<  "<html>\n"
+                           "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                           <<  QString("<title>%1</title>\n").arg("eleve")
+                           <<  "</head>\n"
+                           "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                              // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
+                               "<img src='C:/Users/DeLL/Desktop/logooo.png' width='100' height='100'>\n"
+                               "<h1>   Liste des Session </h1>"
+                                "<h1>  </h1>"
+
+                               "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+                   // headers
+                       out << "<thead><tr bgcolor=#f0f0f0>";
+                       for (int column = 0; column < columnCount; column++)
+                           if (!ui->tablemodifier->isColumnHidden(column))
+                               out << QString("<th>%1</th>").arg(ui->tablemodifier->model()->headerData(column, Qt::Horizontal).toString());
+                       out << "</tr></thead>\n";
+                       // data table
+                          for (int row = 0; row < rowCount; row++) {
+                              out << "<tr>";
+                              for (int column = 0; column < columnCount; column++) {
+                                  if (!ui->tablemodifier->isColumnHidden(column)) {
+                                      QString data = ui->tablemodifier->model()->data(ui->tablemodifier->model()->index(row, column)).toString().simplified();
+                                      out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                  }
+                              }
+                              out << "</tr>\n";
+                          }
+                          out <<  "</table>\n"
+                              "</body>\n"
+                              "</html>\n";
+
+                          QTextDocument *document = new QTextDocument();
+                          document->setHtml(strStream);
+
+                          QPrinter printer;
+
+                          QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                          if (dialog->exec() == QDialog::Accepted) {
+                              document->print(&printer);
+                       }
+
+}

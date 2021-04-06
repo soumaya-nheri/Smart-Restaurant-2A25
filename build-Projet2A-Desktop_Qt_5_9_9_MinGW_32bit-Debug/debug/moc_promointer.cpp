@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_promointer_t {
     QByteArrayData data[15];
-    char stringdata0[394];
+    char stringdata0[369];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,25 +39,25 @@ QT_MOC_LITERAL(4, 75, 4), // "arg1"
 QT_MOC_LITERAL(5, 80, 36), // "on_comboBox_supp_currentIndex..."
 QT_MOC_LITERAL(6, 117, 36), // "on_rechercheav_cursorPosition..."
 QT_MOC_LITERAL(7, 154, 4), // "arg2"
-QT_MOC_LITERAL(8, 159, 39), // "on_comboBox_nomprod_currentIn..."
-QT_MOC_LITERAL(9, 199, 36), // "on_Pourcentage_cursorPosition..."
-QT_MOC_LITERAL(10, 236, 41), // "on_pourcentagemodif_cursorPos..."
-QT_MOC_LITERAL(11, 278, 35), // "on_comboBox_tri_currentIndexC..."
-QT_MOC_LITERAL(12, 314, 31), // "on_tricombo_currentIndexChanged"
-QT_MOC_LITERAL(13, 346, 20), // "on_btn_modif_clicked"
-QT_MOC_LITERAL(14, 367, 26) // "on_SupprimerBouton_clicked"
+QT_MOC_LITERAL(8, 159, 36), // "on_Pourcentage_cursorPosition..."
+QT_MOC_LITERAL(9, 196, 41), // "on_pourcentagemodif_cursorPos..."
+QT_MOC_LITERAL(10, 238, 35), // "on_comboBox_tri_currentIndexC..."
+QT_MOC_LITERAL(11, 274, 31), // "on_tricombo_currentIndexChanged"
+QT_MOC_LITERAL(12, 306, 20), // "on_btn_modif_clicked"
+QT_MOC_LITERAL(13, 327, 26), // "on_SupprimerBouton_clicked"
+QT_MOC_LITERAL(14, 354, 14) // "on_PDF_clicked"
 
     },
     "promointer\0on_AjouterBouton_clicked\0"
     "\0on_comboBox_modif_currentIndexChanged\0"
     "arg1\0on_comboBox_supp_currentIndexChanged\0"
     "on_rechercheav_cursorPositionChanged\0"
-    "arg2\0on_comboBox_nomprod_currentIndexChanged\0"
-    "on_Pourcentage_cursorPositionChanged\0"
+    "arg2\0on_Pourcentage_cursorPositionChanged\0"
     "on_pourcentagemodif_cursorPositionChanged\0"
     "on_comboBox_tri_currentIndexChanged\0"
     "on_tricombo_currentIndexChanged\0"
-    "on_btn_modif_clicked\0on_SupprimerBouton_clicked"
+    "on_btn_modif_clicked\0on_SupprimerBouton_clicked\0"
+    "on_PDF_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -79,24 +79,24 @@ static const uint qt_meta_data_promointer[] = {
        3,    1,   70,    2, 0x08 /* Private */,
        5,    1,   73,    2, 0x08 /* Private */,
        6,    2,   76,    2, 0x08 /* Private */,
-       8,    1,   81,    2, 0x08 /* Private */,
-       9,    0,   84,    2, 0x08 /* Private */,
-      10,    2,   85,    2, 0x08 /* Private */,
+       8,    0,   81,    2, 0x08 /* Private */,
+       9,    2,   82,    2, 0x08 /* Private */,
+      10,    1,   87,    2, 0x08 /* Private */,
       11,    1,   90,    2, 0x08 /* Private */,
-      12,    1,   93,    2, 0x08 /* Private */,
-      13,    0,   96,    2, 0x08 /* Private */,
-      14,    0,   97,    2, 0x08 /* Private */,
+      12,    0,   93,    2, 0x08 /* Private */,
+      13,    0,   94,    2, 0x08 /* Private */,
+      14,    0,   95,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    4,    7,
-    QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    4,    7,
     QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -113,13 +113,13 @@ void promointer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_comboBox_modif_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 2: _t->on_comboBox_supp_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 3: _t->on_rechercheav_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 4: _t->on_comboBox_nomprod_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 5: _t->on_Pourcentage_cursorPositionChanged(); break;
-        case 6: _t->on_pourcentagemodif_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 7: _t->on_comboBox_tri_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->on_tricombo_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 9: _t->on_btn_modif_clicked(); break;
-        case 10: _t->on_SupprimerBouton_clicked(); break;
+        case 4: _t->on_Pourcentage_cursorPositionChanged(); break;
+        case 5: _t->on_pourcentagemodif_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 6: _t->on_comboBox_tri_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: _t->on_tricombo_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 8: _t->on_btn_modif_clicked(); break;
+        case 9: _t->on_SupprimerBouton_clicked(); break;
+        case 10: _t->on_PDF_clicked(); break;
         default: ;
         }
     }

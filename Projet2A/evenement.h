@@ -15,10 +15,6 @@ public:
     Evenement();
     Evenement(QString,QString,QDate);
     Evenement(int,QString,QString,QDate);
-    int get_Id();
-    QString get_Nom();
-    QString get_Description();
-    QDate get_Dateevent();
 
     bool ajouter();
     bool modifier(QString,QString,QDate,QString);

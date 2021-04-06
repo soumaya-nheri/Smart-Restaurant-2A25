@@ -17,7 +17,7 @@ promointer::promointer(QWidget *parent) :
     //refresh combobox + tableau
 
     QStringList list;
-    list << "" << "PRODUIT" << "PRIXAV" << "POURCENTAGE" << "PRIXAP" << "DUREE";
+    list << "" << "MENU" << "PRIXAV" << "POURCENTAGE" << "PRIXAP" << "DUREE";
 
     ui->tricombo->addItems(list);
     qDebug()<<    ui->tricombo->currentText();
@@ -34,7 +34,6 @@ void promointer::refresh()
 
     ui->comboBox_supp->setModel(tmppromo.remplircombopromo());
     ui->comboBox_modif->setModel(tmppromo.remplircombopromo());
-    ui->comboBox_nomprod->setModel(tmppromo.recupererproduits());
 }
 
 
@@ -45,7 +44,7 @@ promointer::~promointer()
 
 void promointer::on_AjouterBouton_clicked()
 {
-    promotion promo(ui->comboBox_nomprod->currentText(),ui->Prixav->toPlainText().toFloat(),ui->Pourcentage->toPlainText().toFloat(),ui->Prixap->toPlainText().toFloat(),ui->duree->toPlainText().toUInt());
+    promotion promo(ui->nomprod->text(),ui->Prixav->text().toFloat(),ui->Pourcentage->text().toFloat(),ui->Prixap->toPlainText().toFloat(),ui->duree->toPlainText().toUInt());
     bool test = promo.ajouter();
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Ajouter une promotion"),
@@ -120,28 +119,11 @@ void promointer::on_rechercheav_cursorPositionChanged(int arg1, int arg2)
 
 }
 
-void promointer::on_comboBox_nomprod_currentIndexChanged(const QString &arg1)
-{
-    QSqlQuery query;
-
-
-    query =tmppromo.requestproduit(ui->comboBox_nomprod->currentText());
-
-    if(query.exec())
-    {
-        while(query.next())
-        {
-            ui->Prixav->setText(query.value(2).toString());
-        }
-    }
-
-}
-
 void promointer::on_Pourcentage_cursorPositionChanged()
 {
-    float aux= ui->Prixav->toPlainText().toFloat();
+    float aux= ui->Prixav->text().toFloat();
 
-    float pourcent = ui->Pourcentage->toPlainText().toFloat();
+    float pourcent = ui->Pourcentage->text().toFloat();
 
     float tmp = aux - aux/100 * pourcent;
 
@@ -168,6 +150,7 @@ void promointer::on_comboBox_tri_currentIndexChanged(const QString &arg1)
     }
 }
 
+//TRI
 void promointer::on_tricombo_currentIndexChanged(const QString &arg1)
 {
     if(!(ui->tricombo->currentText()==""))
@@ -179,6 +162,7 @@ void promointer::on_tricombo_currentIndexChanged(const QString &arg1)
 
 }
 
+//BOUTON MODIFIER
 void promointer::on_btn_modif_clicked()
 {
     if((ui->pourcentagemodif->text() != "") &&(ui->dureemodif->text() != ""))
@@ -229,5 +213,59 @@ void promointer::on_SupprimerBouton_clicked()
         }
 
     }
+
+}
+
+void promointer::on_PDF_clicked()
+{
+    QString strStream;
+               QTextStream out(&strStream);
+               const int rowCount = ui->tablemodifier->model()->rowCount();
+               const int columnCount =ui->tablemodifier->model()->columnCount();
+
+               out <<  "<html>\n"
+                       "<head>\n"
+                       "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                       <<  QString("<title>%1</title>\n").arg("eleve")
+                       <<  "</head>\n"
+                       "<body bgcolor=#F4B8B8 link=#5000A0>\n"
+                          // "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='20' height='20'>\n"
+                           "<img src='C:/Users/DeLL/Desktop/logooo.png' width='100' height='100'>\n"
+                           "<h1>   Liste des Session </h1>"
+                            "<h1>  </h1>"
+
+                           "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+               // headers
+                   out << "<thead><tr bgcolor=#f0f0f0>";
+                   for (int column = 0; column < columnCount; column++)
+                       if (!ui->tablemodifier->isColumnHidden(column))
+                           out << QString("<th>%1</th>").arg(ui->tablemodifier->model()->headerData(column, Qt::Horizontal).toString());
+                   out << "</tr></thead>\n";
+                   // data table
+                      for (int row = 0; row < rowCount; row++) {
+                          out << "<tr>";
+                          for (int column = 0; column < columnCount; column++) {
+                              if (!ui->tablemodifier->isColumnHidden(column)) {
+                                  QString data = ui->tablemodifier->model()->data(ui->tablemodifier->model()->index(row, column)).toString().simplified();
+                                  out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                              }
+                          }
+                          out << "</tr>\n";
+                      }
+                      out <<  "</table>\n"
+                          "</body>\n"
+                          "</html>\n";
+
+                      QTextDocument *document = new QTextDocument();
+                      document->setHtml(strStream);
+
+                      QPrinter printer;
+
+                      QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                      if (dialog->exec() == QDialog::Accepted) {
+                          document->print(&printer);
+                   }
 
 }

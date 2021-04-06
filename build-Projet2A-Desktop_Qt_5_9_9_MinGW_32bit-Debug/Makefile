@@ -210,6 +210,7 @@ Makefile: ../Projet2A/Projet2A.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qt_config.prf \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/toolchain.prf \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/default_pre.prf \
@@ -235,6 +236,8 @@ Makefile: ../Projet2A/Projet2A.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-
 		../Projet2A/Projet2A.pro \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl \
@@ -390,6 +393,7 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qt_functions.prf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qt_config.prf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/toolchain.prf:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/default_pre.prf:
@@ -415,6 +419,8 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 ../Projet2A/Projet2A.pro:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
+C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl:

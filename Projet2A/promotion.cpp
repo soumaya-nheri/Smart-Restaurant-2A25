@@ -7,10 +7,10 @@ promotion::promotion()
 
 //Constructeur pour Afficher
 
-promotion::promotion(int id ,QString produit , float prixAv,float pourcentage,float prixAp,int duree)
+promotion::promotion(int id ,QString menu , float prixAv,float pourcentage,float prixAp,int duree)
 {
     this->id=id;
-    this->produit=produit;
+    this->menu=menu;
     this->prixAv=prixAv;
     this->pourcentage=pourcentage;
     this->prixAp=prixAp;
@@ -19,39 +19,33 @@ promotion::promotion(int id ,QString produit , float prixAv,float pourcentage,fl
 
 //Constructeur pour Ajouter
 
-promotion::promotion(QString produit , float prixAv,float pourcentage,float prixAp,int duree)
+promotion::promotion(QString menu , float prixAv,float pourcentage,float prixAp,int duree)
 {
-    this->produit=produit;
+    this->menu=menu;
     this->prixAv=prixAv;
     this->pourcentage=pourcentage;
     this->prixAp=prixAp;
     this->duree=duree;
 }
 
-//GETTERS
-int promotion::get_Id(){return  id;}
-QString promotion::get_Produit(){return  produit;}
-float promotion::get_PrixAv(){return  prixAv;}
-float promotion::get_Pourcentage(){return  pourcentage;}
-float promotion::get_PrixAp(){return  prixAp;}
-int promotion::get_Duree(){return  duree;}
-
 //*******AJOUTER
 
 bool promotion::ajouter()
 {
+//creation du query
 QSqlQuery query;
 
+//convertir QString au number
 QString prixAvstring= QString::number(prixAv);
 QString pourcentagestring= QString::number(pourcentage);
 QString prixApstring= QString::number(prixAp);
 QString dureestring= QString::number(duree);
 
-query.prepare("INSERT INTO PROMO (PRODUIT, PRIXAV, POURCENTAGE, PRIXAP, DUREE) "
-                    "VALUES (:produit, :prixav, :pourcentage, :prixap, :duree)");
+query.prepare("INSERT INTO PROMO (MENU, PRIXAV, POURCENTAGE, PRIXAP, DUREE) "
+                    "VALUES (:menu, :prixav, :pourcentage, :prixap, :duree)");
 
-
-query.bindValue(":produit", produit);
+//convertion des données et evitée les SQLINJECTION
+query.bindValue(":menu", menu);
 query.bindValue(":prixav", prixAvstring);
 query.bindValue(":pourcentage", pourcentagestring);
 query.bindValue(":prixap", prixApstring);
@@ -62,15 +56,15 @@ return    query.exec();
 }
 //*******MODIFIER
 
-bool promotion::modifier(QString nom,QString prixav,QString pourcentage,QString prixap,QString duree,QString id)
+bool promotion::modifier(QString menu,QString prixav,QString pourcentage,QString prixap,QString duree,QString id)
 {
 QSqlQuery query;
 
-query.prepare("UPDATE PROMO SET PRODUIT= :produit, PRIXAV= :prixav,POURCENTAGE= :pourcentage,PRIXAP= :prixap,DUREE= :duree "
+query.prepare("UPDATE PROMO SET MENU= :menu, PRIXAV= :prixav,POURCENTAGE= :pourcentage,PRIXAP= :prixap,DUREE= :duree "
                     " WHERE  ID = :id ");
 
 
-query.bindValue(":produit", nom);
+query.bindValue(":menu", menu);
 query.bindValue(":prixav", prixav);
 query.bindValue(":pourcentage", pourcentage);
 query.bindValue(":prixap", prixap);
@@ -87,12 +81,14 @@ QSqlQueryModel * promotion::afficher()
 {QSqlQueryModel * model= new QSqlQueryModel();
 
 model->setQuery("select * from PROMO");
+
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom produit"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Menu"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix avant"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("Pourcentage"));
 model->setHeaderData(4, Qt::Horizontal, QObject::tr("Prix apres"));
 model->setHeaderData(5, Qt::Horizontal, QObject::tr("Duree"));
+
 
     return model;
 }
@@ -110,11 +106,12 @@ QSqlQueryModel * promotion::triafficher(QString col)
 model->setQuery(query);
 
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom produit"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Menu"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix avant"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("Pourcentage"));
 model->setHeaderData(4, Qt::Horizontal, QObject::tr("Prix apres"));
 model->setHeaderData(5, Qt::Horizontal, QObject::tr("Duree"));
+
     return model;
 }
 
@@ -154,34 +151,19 @@ QSqlQuery promotion::request(QString id)
 }
 
 
-QSqlQueryModel * promotion::recupererproduits()
-{
-    QSqlQueryModel * mod= new QSqlQueryModel();
-    QSqlQuery query;
-    query.prepare("SELECT NOM_PRODUIT FROM produit");
-    query.exec();
-    mod->setQuery(query);
-    return mod;
-}
-
-QSqlQuery promotion::requestproduit(QString nom)
-{
-    QSqlQuery query;
-    query.prepare("select * from PRODUIT where NOM_PRODUIT= '"+nom+"'");
-    query.exec();
-    return query;
-}
-
 QSqlQueryModel * promotion::afficherecherche(QString res)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
     QSqlQuery query;
-    query.prepare("select * from PROMO  where (PRODUIT LIKE '%"+res+"%' )");
+    query.prepare("select * from PROMO  where (MENU LIKE '%"+res+"%' OR PRIXAV LIKE '%"+res+"%' OR POURCENTAGE LIKE '%"+res+"%' )");
     query.exec();
     model->setQuery(query);
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numero client"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Monton à payer"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Menu"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix avant"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Pourcentage"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Prix apres"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Duree"));
 
 
     return model;

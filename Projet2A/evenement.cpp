@@ -28,12 +28,6 @@ Evenement::Evenement(QString nom,QString description,QDate dateevent)
   this->dateevent=dateevent;
 }
 
-//GETTERS
-int Evenement::get_Id(){return  id;}
-QString Evenement::get_Nom(){return  nom;}
-QString Evenement::get_Description(){return  description;}
-QDate Evenement::get_Dateevent(){return  dateevent;}
-
 //*******AJOUTER
 
 bool Evenement::ajouter()
@@ -91,9 +85,10 @@ QSqlQueryModel * Evenement::triafficher()
 {QSqlQueryModel * model= new QSqlQueryModel();
 
 model->setQuery("select * from client order by numClient");
-model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numero client"));
-model->setHeaderData(2, Qt::Horizontal, QObject::tr("Monton à payer"));
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("description"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date evenement"));
 
 
     return model;

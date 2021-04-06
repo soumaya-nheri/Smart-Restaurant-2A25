@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/Files">
+        <file>stock.png</file>
+        <file>menu.jpg</file>
+        <file>menu1.jpg</file>
+        <file>menu2.jpg</file>
+        <file>delivery-truck.png</file>
+        <file>fast-food.png</file>
+        <file>ingredients.png</file>
+        <file>gestion des produits.png</file>
+        <file>fast-food (1).png</file>
+        <file>fast-food (2).png</file>
+        <file>fast-food (3).png</file>
+        <file>fast-food (4).png</file>
+        <file>delivery-truck (1).png</file>
+        <file>ingredients (1).png</file>
+        <file>harvest (1).png</file>
+        <file>harvest.png</file>
+        <file>settings.png</file>
+        <file>exit.png</file>
+    </qresource>
+</RCC>

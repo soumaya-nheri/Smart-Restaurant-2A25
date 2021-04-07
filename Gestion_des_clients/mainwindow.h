@@ -55,11 +55,18 @@ private slots:
 
     void on_BAmenu_5_clicked();
 
+    void on_trimenu_3_clicked();
+
+    void on_pdf_2_clicked();
+
+    void on_pdf_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;
     Client M;
     Reservation R;
+
 };
 
 #endif // MAINWINDOW_H

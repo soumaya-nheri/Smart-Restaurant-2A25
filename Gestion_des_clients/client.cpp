@@ -95,7 +95,7 @@ QSqlQueryModel* Client:: trierclient()
 {
  //order by extract (year from date_naissance)
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from client order by (nom) DESC ");
+    model->setQuery("select * from client order by (nom) ASC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id client"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom client"));
       model->setHeaderData(2, Qt::Horizontal, QObject::tr(" prenom client"));
@@ -109,16 +109,31 @@ QSqlQueryModel* Client:: trierclient2()
 
     QSqlQueryModel * model=new QSqlQueryModel();
 
-    model->setQuery("select * from client order by (prenom) DESC");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setQuery("select * from client order by (prenom) ASC");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id client"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom client"));
       model->setHeaderData(2, Qt::Horizontal, QObject::tr(" prenom client"));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse client"));
+      model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse "));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("numero tel client"));;
 
 
     return model;
 }
+QSqlQueryModel* Client:: trierclient3()
+{
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+
+    model->setQuery("select * from client order by (id) ASC");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id client"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom client"));
+      model->setHeaderData(2, Qt::Horizontal, QObject::tr(" prenom client"));
+      model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse "));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("numero tel client"));;
+
+    return model;
+}
+
 
 QSqlQueryModel *Client::chercherclient(QString nom, QString prenom)
  {

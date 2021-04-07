@@ -34,6 +34,7 @@ public:
   QSqlQueryModel* trierclient();
 // QSqlQueryModel* trier();
  QSqlQueryModel* trierclient2();
+ QSqlQueryModel* trierclient3();
 QSqlQueryModel * chercherclient(QString,QString);
 
 

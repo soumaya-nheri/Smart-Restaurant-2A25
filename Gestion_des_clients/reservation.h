@@ -3,28 +3,29 @@
 #include<QDate>
 #include<QString>
 #include<QSqlQueryModel>
+#include<QDate>
 
 #include <QPdfWriter>
 class Reservation
 {
 public:
     Reservation();
-    Reservation(int,int,QString);
+    Reservation(int,int,QDate);
     //getter
     int getid_client();
     int getid_reservation();
-     QString getdate();
+     QDate getdate();
       //setter
     void setid_client(int);
     void setid_reservation(int);
-    void setdate(QString);
+    void setdate(QDate);
 
 
     //methode
      bool ajouterreservation();
      QSqlQueryModel* afficherreservation();
     bool supprimerreservation(int);
-    bool modifierreservation(int,int,QString);
+    bool modifierreservation(int,int,QDate);
 //QStringList liste();
 // Menu recherche_Id(int);
   QSqlQueryModel* trierreservation();
@@ -36,7 +37,7 @@ QSqlQueryModel * chercherreservation(int,int);
 private:
     int id_client;
     int id_reservation;
-     QString date_res;
+     QDate date_res;
 
 };
 

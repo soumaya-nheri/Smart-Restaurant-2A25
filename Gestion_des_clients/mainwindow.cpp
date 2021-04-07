@@ -3,8 +3,16 @@
 #include"ingredient.h"
 #include"client.h"
 #include"reservation.h"
+#include"notif.h"
 #include<QString>
 #include <QMessageBox>
+#include <QDate>
+#include <QSqlQuery>
+#include <QPrintDialog>
+#include <QTextStream>
+#include <QPrinter>
+#include<QtDebug>
+#include <QTextDocument>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -40,6 +48,7 @@ void MainWindow::on_BAmenu_clicked()
          QMessageBox::information(nullptr, QObject::tr("ok"),
                      QObject::tr("ajout effectuer.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
          ui->tab_menu->setModel(M.afficherclient());
          ui->linemenu1->setText("");
           ui->linemenu2->setText("");
@@ -47,10 +56,10 @@ void MainWindow::on_BAmenu_clicked()
                      ui->linemenu4->setText("");
                  ui->linemenu5->setText("");
 
-        // ui->comboBox->clear();
-      // ui->comboBox->addItems(I.liste());
-
-}
+      }
+     else {
+     notif n("Erreur","Ce client existe déja ");
+     n.afficher();}
 }
 
 void MainWindow::on_P_supprimer_3_clicked()
@@ -143,7 +152,7 @@ void MainWindow::on_BAmenu_2_clicked()
 {
     int id_client=ui->linemenu1_2->text().toInt();
     int id_reservation=ui->linemenu2_2->text().toInt();
-     QString date_res=ui->linemenu3_2->text();
+     QDate date_res=ui->linemenu2_3->date();
 
      Reservation R( id_client,id_reservation, date_res);
      bool test= R.ajouterreservation();
@@ -155,9 +164,12 @@ void MainWindow::on_BAmenu_2_clicked()
          ui->tab_menu_2->setModel(  R.afficherreservation());
          ui->linemenu1_2->setText("");
           ui->linemenu2_2->setText("");
-                ui->linemenu3_2->setText("");
+          ui->linemenu2_3->setDate(QDate(2000,01,01));
 
 }
+     else {
+     notif n("Erreur","Ce client existe déja ");
+     n.afficher();}
 }
 
 void MainWindow::on_P_supprimer_4_clicked()
@@ -184,7 +196,7 @@ void MainWindow::on_modifmenub_2_clicked()
 {
     int id_client=ui->modifmenu_2->text().toInt();
     int id_reservation=ui->modifmenu2_2->text().toInt();
-    QString date_res=ui->modifmenu3_2->text();
+    QDate date_res=ui->modifmenu3_3->date();
 
                   Reservation R(id_client, id_reservation,date_res);
 
@@ -208,7 +220,7 @@ void MainWindow::on_tab_menu_2_clicked(const QModelIndex &index)
 {
  ui->modifmenu_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),0)).toString() );
    ui->modifmenu2_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),1)).toString() );
- ui->modifmenu3_2->setText( ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),2)).toString() );
+ ui->modifmenu3_3->setDate(ui->tab_menu_2->model()->data(ui->tab_menu_2->model()->index(ui->tab_menu_2->selectionModel()->currentIndex().row(),2)).toDate() );
 
 }
 
@@ -249,4 +261,150 @@ void MainWindow::on_BAmenu_6_clicked()
 void MainWindow::on_BAmenu_5_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
+
+void MainWindow::on_trimenu_3_clicked()
+{
+ ui->tab_menu->setModel(M.trierclient3());
+}
+
+void MainWindow::on_pdf_2_clicked()
+{
+    QTableView tab_menu;
+    QSqlQueryModel * Modal=new  QSqlQueryModel();
+
+    QSqlQuery qry;
+     qry.prepare("SELECT * FROM client");
+     qry.exec();
+     Modal->setQuery(qry);
+     tab_menu.setModel(Modal);
+
+
+
+
+
+
+     QString strStream;
+     QTextStream out(&strStream);
+
+     const int rowCount = tab_menu.model()->rowCount();
+     const int columnCount =  tab_menu.model()->columnCount();
+
+     const QString strTitle ="Document";
+
+
+     out <<  "<html>\n"
+         "<head>\n"
+             "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+         <<  QString("<title>%1</title>\n").arg(strTitle)
+         <<  "</head>\n"
+         "<body bgcolor=#ffffff link=#5000A0>\n"
+        << QString("<h3 style=\" font-size: 32px; font-family: Arial, Helvetica, sans-serif; color: red ; font-weight: lighter; text-align: center;\">%1</h3>\n").arg("Liste Des Clients")
+        <<"<br>"
+         <<"<table border=1 cellspacing=0 cellpadding=2>\n";
+
+     out << "<thead><tr bgcolor=#f0f0f0>";
+     for (int column = 0; column < columnCount; column++)
+         if (!tab_menu.isColumnHidden(column))
+             out << QString("<th>%1</th>").arg(tab_menu.model()->headerData(column, Qt::Horizontal).toString());
+     out << "</tr></thead>\n";
+     for (int row = 0; row < rowCount; row++) {
+             out << "<tr>";
+             for (int column = 0; column < columnCount; column++) {
+                 if (!tab_menu.isColumnHidden(column)) {
+                     QString data = tab_menu.model()->data(tab_menu.model()->index(row, column)).toString().simplified();
+                     out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                 }
+             }
+             out << "</tr>\n";
+         }
+         out <<  "</table>\n"
+                 "<br><br>"
+
+
+         "</body>\n"
+         "</html>\n";
+
+     QTextDocument *document = new QTextDocument();
+     document->setHtml(strStream);
+
+     QPrinter printer;
+
+     QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+     if (dialog->exec() == QDialog::Accepted) {
+         document->print(&printer);
+     }
+
+     delete document;
+
+}
+
+void MainWindow::on_pdf_3_clicked()
+{
+    QTableView tab_menu_2;
+    QSqlQueryModel * Modal=new  QSqlQueryModel();
+
+    QSqlQuery qry;
+     qry.prepare("SELECT * FROM Reservation");
+     qry.exec();
+     Modal->setQuery(qry);
+     tab_menu_2.setModel(Modal);
+
+
+
+
+
+
+     QString strStream;
+     QTextStream out(&strStream);
+
+     const int rowCount = tab_menu_2.model()->rowCount();
+     const int columnCount =  tab_menu_2.model()->columnCount();
+
+     const QString strTitle ="Document";
+
+
+     out <<  "<html>\n"
+         "<head>\n"
+             "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+         <<  QString("<title>%1</title>\n").arg(strTitle)
+         <<  "</head>\n"
+         "<body bgcolor=#ffffff link=#5000A0>\n"
+        << QString("<h3 style=\" font-size: 32px; font-family: Arial, Helvetica, sans-serif; color: red ; font-weight: lighter; text-align: center;\">%1</h3>\n").arg("Liste Des Reservation")
+        <<"<br>"
+         <<"<table border=1 cellspacing=0 cellpadding=2>\n";
+
+     out << "<thead><tr bgcolor=#f0f0f0>";
+     for (int column = 0; column < columnCount; column++)
+         if (!tab_menu_2.isColumnHidden(column))
+             out << QString("<th>%1</th>").arg(tab_menu_2.model()->headerData(column, Qt::Horizontal).toString());
+     out << "</tr></thead>\n";
+     for (int row = 0; row < rowCount; row++) {
+             out << "<tr>";
+             for (int column = 0; column < columnCount; column++) {
+                 if (!tab_menu_2.isColumnHidden(column)) {
+                     QString data = tab_menu_2.model()->data(tab_menu_2.model()->index(row, column)).toString().simplified();
+                     out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                 }
+             }
+             out << "</tr>\n";
+         }
+         out <<  "</table>\n"
+                 "<br><br>"
+
+
+         "</body>\n"
+         "</html>\n";
+
+     QTextDocument *document = new QTextDocument();
+     document->setHtml(strStream);
+
+     QPrinter printer;
+
+     QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+     if (dialog->exec() == QDialog::Accepted) {
+         document->print(&printer);
+     }
+
+     delete document;
 }

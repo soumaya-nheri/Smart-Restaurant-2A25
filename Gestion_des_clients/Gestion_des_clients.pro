@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+QT       +=  printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +31,8 @@ SOURCES += \
     ingredient.cpp \
         main.cpp \
     mainwindow.cpp \
-    reservation.cpp\
+    notif.cpp \
+    reservation.cpp
 
 
 HEADERS += \
@@ -39,11 +41,12 @@ HEADERS += \
     ingredient.h \
     mainwindow.h \
        connection.h \
-    reservation.h\
+    notif.h \
+    reservation.h
 
 
 FORMS += \
-        mainwindow.ui \
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

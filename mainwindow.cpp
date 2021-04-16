@@ -13,7 +13,7 @@
 #include<QtDebug>
 #include <QTextDocument>
 #include <QProcess>
-
+#include "notif.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -179,7 +179,7 @@ void MainWindow::on_tri_emp_3_clicked()
 
 void MainWindow::on_tri_emp_4_clicked()
 {
-    ui->tab_ingredient->setModel(I.trier());
+    ui->tab_ingredient->setModel(I.trier2());
 }
 
 void MainWindow::on_chercher_clicked()
@@ -321,8 +321,11 @@ void MainWindow::on_ajoutfournisseur_clicked()
     Fournisseur c(ui->linefour1->text().toInt(),ui->linefour2->text(),ui->linefour3->text(),ui->linefour4->text().toInt(),ui->linefour5->text(),ui->linefour6->text(),ui->comboBox2->currentText().toInt());
     bool test=c.ajouterfournisseur();
     if(test) {
-        QMessageBox::information(nullptr, QObject::tr("Conge"),
-                    QObject::tr("fournisseur ajouté avec succés.\n"), QMessageBox::Cancel);
+        /*QMessageBox::information(nullptr, QObject::tr("Fournisseur"),
+                    QObject::tr("fournisseur ajouté avec succés.\n"), QMessageBox::Cancel);*/
+        notif n("succé","fournisseur ajouté ");
+                                 n.afficher();
+
         ui->tab_fournisseur->setModel(F.afficherfourniseeur());
 
         ui->linefour1->setText("");
@@ -381,11 +384,11 @@ QString prenom =ui->linechercher3_2->text();
 */
 void MainWindow::on_modiffour_clicked()
 {
-    Fournisseur c (ui->comboc1->currentText().toInt(),ui->moudiffour2->text(),ui->modiffour3->text(),ui->modiffour4->text().toInt(),ui->modif5->text(),ui->modiffour6->text(),ui->comboc1->currentText().toInt());
+    Fournisseur c (ui->comboc1->currentText().toInt(),ui->moudiffour2->text(),ui->modiffour3->text(),ui->modiffour4->text().toInt(),ui->modiffour5->text(),ui->modiffour6->text(),ui->comboc1->currentText().toInt());
     bool test=c.modifierfournisseur(ui->comboc1->currentText().toInt());
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Conge"),
-                    QObject::tr("congé modifié avec succés.\n"), QMessageBox::Cancel);
+                    QObject::tr("FOURNISSEUR modifié avec succés.\n"), QMessageBox::Cancel);
         ui->tab_fournisseur->setModel(F.afficherfourniseeur());
 
         ui->moudiffour2->setText("");
@@ -399,7 +402,7 @@ void MainWindow::on_modiffour_clicked()
 
     }
     else{
-        QMessageBox::critical(nullptr, QObject::tr("Conge"),
+        QMessageBox::critical(nullptr, QObject::tr("FOURNISSEUR non mdifié"),
                     QObject::tr("Echec!\n"), QMessageBox::Cancel);
     }
 }
@@ -739,4 +742,9 @@ void MainWindow::on_pdf_2_clicked()
      }
 
      delete document;
+}
+
+void MainWindow::on_lineEdit_5_textChanged(const QString &arg1)
+{
+     ui->tab_menu->setModel(M.search2(arg1));
 }

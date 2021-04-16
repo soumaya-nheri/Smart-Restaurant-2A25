@@ -111,6 +111,8 @@ private slots:
 
     void on_pdf_2_clicked();
 
+    void on_lineEdit_5_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;

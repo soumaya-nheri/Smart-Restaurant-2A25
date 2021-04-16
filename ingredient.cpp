@@ -157,7 +157,7 @@ QSqlQueryModel* Ingredient:: trier2()
 
     QSqlQueryModel * model=new QSqlQueryModel();
 
-    model->setQuery("select * from Ingredient order by (quantite) ASC");
+    model->setQuery("select * from Ingredient order by (quantite) DESC");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Réference"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
       model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantite "));
@@ -173,11 +173,12 @@ QSqlQueryModel *Ingredient::chercher_emp_avancee(QString nom,QString marque)
     {
         QSqlQueryModel *model = new QSqlQueryModel;
         model->setQuery("SELECT * FROM Ingredient WHERE upper(nom) Like upper('"+nom+"%') and upper(marque) Like upper('"+marque+"%') ");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-        model->setHeaderData(2, Qt::Horizontal, QObject::tr("quantite"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Marque d'ingredient"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("date d'expiration"));
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Réference"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantite "));
+          model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date d'Expiration"));
+            model->setHeaderData(4, Qt::Horizontal, QObject::tr("Marque"));
+
         qDebug() << model;
         return model ;
     }
@@ -195,10 +196,10 @@ QSqlQueryModel* Ingredient::search(QString input)
 
     QSqlQueryModel*model=new QSqlQueryModel();
     model->setQuery(query);
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("quantite"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Marque d'ingredient"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("date d'expiration"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Réference"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+      model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantite "));
+      model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date d'Expiration"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Marque"));
     return model;
 }

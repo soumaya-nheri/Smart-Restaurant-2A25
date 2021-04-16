@@ -122,7 +122,7 @@ QSqlQueryModel *Fournisseur::chercher_emp_avancee1(QString  nom,QString  prenom)
           //QString res=QString::number();
         //QString res1=QString::number(duree);
 
-        model->setQuery("SELECT * FROM fournisseur  WHERE upper(nom) Like upper('"+nom+"%') and upper(prenom) Like upper('"+prenom+"%')  ");
+        model->setQuery("SELECT * FROM fournisseur  WHERE upper(NOM) Like upper('"+nom+"%') and upper(prenom) Like upper('"+prenom+"%')  ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));

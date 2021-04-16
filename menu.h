@@ -40,7 +40,7 @@ QSqlQueryModel * cherchermenu(QString nom_plat,QString type);
 QSqlQueryModel * chercher_menu_par_nom(QString);
 QSqlQueryModel * chercher_menu_par_type(QString);
 QSqlQueryModel * chercher_menu_par_cuisine(QString);
-
+ QSqlQueryModel* search2(QString);
 private:
     int id_plat;
    QString nom_plat;

@@ -32,14 +32,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    menu.cpp
+    menu.cpp \
+    notif.cpp
 
 HEADERS += \
     fournisseur.h \
     ingredient.h \
         mainwindow.h \
     connection.h \
-    menu.h
+    menu.h \
+    notif.h
 
 FORMS += \
         mainwindow.ui

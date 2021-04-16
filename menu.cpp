@@ -131,7 +131,7 @@ QSqlQueryModel *Menu::cherchermenu(QString nom_plat,QString type)
 
     {
         QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM Menu WHERE upper(nom) Like upper('"+nom_plat+"%') and upper(cuisine) Like upper('"+type+"%') ");
+        model->setQuery("SELECT * FROM Menu WHERE upper(NOM) Like upper('"+nom_plat+"%') and upper(type) Like upper('"+type+"%') ");
 
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Référence"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom de plat"));
@@ -166,7 +166,7 @@ QSqlQueryModel* Menu::chercher_menu_par_type( QString p)
  {
 
     {QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM menu nom_plat type like '"+p+"%'  ");
+        model->setQuery("SELECT * FROM menu WHERE type  like '"+p+"%'  ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Référence"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom de plat"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr(" prix de plat"));
@@ -182,13 +182,33 @@ QSqlQueryModel* Menu::chercher_menu_par_cuisine(QString o)
 
     {QSqlQueryModel *model = new QSqlQueryModel;
         model->setQuery("SELECT * FROM menu WHERE cuisine like '"+o+"%'  ");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("identifient"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom_plat d'Menu"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr(" prix d'Menu"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("cuisine d'Menu"));
-            model->setHeaderData(1, Qt::Horizontal, QObject::tr("description d'expiration"));
-               model->setHeaderData(1, Qt::Horizontal, QObject::tr("type d'expiration"));;
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Référence"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom de plat"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr(" prix de plat"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("cuisine "));
+            model->setHeaderData(1, Qt::Horizontal, QObject::tr("description"));
+               model->setHeaderData(1, Qt::Horizontal, QObject::tr("type de plat"));;
         return model;
     }
 
  }
+QSqlQueryModel* Menu::search2(QString input)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM menu WHERE nom_plat LIKE ? OR type LIKE ? OR prix LIKE ? OR cuisine LIKE ?");
+    query.addBindValue("%"+input+"%");
+    query.addBindValue("%"+input+"%");
+    query.addBindValue("%"+input+"%");
+    query.addBindValue("%"+input+"%");
+    query.exec();
+
+    QSqlQueryModel*model=new QSqlQueryModel();
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Référence"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr(" nom de plat"));
+      model->setHeaderData(1, Qt::Horizontal, QObject::tr(" prix de plat"));
+      model->setHeaderData(1, Qt::Horizontal, QObject::tr("cuisine "));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("description"));
+           model->setHeaderData(1, Qt::Horizontal, QObject::tr("type de plat"));;
+    return model;
+}

@@ -14,17 +14,54 @@
 #include <QTextDocument>
 #include <QProcess>
 #include "notif.h"
+#include <QSound>
+#include <QMediaPlayer>
+double firstNum;
+bool user_is_typing_secondNumber=false;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+ sound=new QSound(":/Files/music.wav");
+    connect(ui->pushButton_0,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_1,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_2,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_3,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_4,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_5,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_6,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_7,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_8,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_9,SIGNAL(released()),this,SLOT(digit_pressed()));
+
+    connect(ui->pushButton_plusMinus,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+    connect(ui->pushButton_percent,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+
+    connect(ui->pushButton_multiply,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_add,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+
+    ui->pushButton_add->setCheckable(true);
+    ui->pushButton_multiply->setCheckable(true);
+    ui->pushButton_divide->setCheckable(true);
+    ui->pushButton_minus->setCheckable(true);
+    //setFixedSize( 241,366);
+
     ui->lineEdit->setValidator(new QIntValidator(0, 9999999, this));
     ui->tab_ingredient->setModel(I.afficher());
      ui->tab_fournisseur->setModel(F.afficherfourniseeur());
      ui->tab_menu->setModel(M.affichermenu());
-}
+
+
+
+
+
+ }
+
 
 MainWindow::~MainWindow()
 {
@@ -135,7 +172,7 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
 
 
 
-void MainWindow::on_pushButton_5_clicked()
+/*void MainWindow::on_pushButton_5_clicked()
 {
     Ingredient e(ui->modif1->text().toInt(),ui->modif2->text(),ui->modif3->text().toInt(),ui->modif4->date(),ui->modif5->text());
         bool test=e.modifier(ui->comboBox->currentText().toInt());
@@ -161,7 +198,7 @@ void MainWindow::on_pushButton_5_clicked()
 }
 
 
-
+*/
 
 
 
@@ -523,7 +560,7 @@ void MainWindow::on_pdffour_clicked()
 
 
 
-void MainWindow::on_pushButton_clicked()
+/*void MainWindow::on_pushButton_clicked()
 {
      ui->stackedWidget->setCurrentIndex(3);
 }
@@ -532,7 +569,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
       ui->stackedWidget->setCurrentIndex(2);
 }
-
+*/
 void MainWindow::on_BAmenu_clicked()
 {
     int id_plat=ui->linemenu1->text().toInt();
@@ -748,3 +785,177 @@ void MainWindow::on_lineEdit_5_textChanged(const QString &arg1)
 {
      ui->tab_menu->setModel(M.search2(arg1));
 }
+
+
+//calculatrice
+
+
+
+
+
+
+void MainWindow::digit_pressed()
+{
+
+    qDebug() << "test";
+    QPushButton * button = (QPushButton *)sender();
+    QString input;
+    double labelnumber;
+
+    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked()) && (!user_is_typing_secondNumber))
+    {
+        user_is_typing_secondNumber=true;
+        labelnumber = button->text().toDouble();
+        input = QString::number(labelnumber,'g',15);
+    }
+
+    else
+    {
+        if(ui->label_19->text().contains(".") && button->text() == "0")
+        {
+            input=ui->label_19->text() + button->text();
+        }
+        else
+        {
+            labelnumber = (ui->label_19->text() + button->text()).toDouble();
+            input = QString::number(labelnumber,'g',15);
+        }
+        labelnumber = (ui->label_19->text() + button->text()).toDouble();
+    }
+    ui->label_19->setText(input);
+ user_is_typing_secondNumber=false;
+}
+
+void MainWindow::on_pushButton_dot_released()
+{
+    // check for appearance of decimal, exit function if there is one
+         if(ui->label_19->text().contains(".")){
+
+                 return;
+         }
+    ui->label_19->setText(ui->label_19->text() + ".");
+    //check for extra decimal
+    user_is_typing_secondNumber=false;
+}
+
+void MainWindow::unary_operation_pressed()
+{
+    QPushButton* button = (QPushButton *)sender();
+    double labelnumber;
+    QString input;
+
+    if(button->text() == "+/-")
+    {
+        labelnumber = (ui->label_19->text()).toDouble();
+        labelnumber *= -1;
+        input = QString::number(labelnumber,'g',15);
+        ui->label_19->setText(input);
+    }
+
+    else if(button->text() == "%")
+    {
+        labelnumber = (ui->label_19->text()).toDouble();
+        labelnumber *= 0.01;
+        input = QString::number(labelnumber,'g',15);
+        ui->label_19->setText(input);
+    }
+
+    //error correction codse is still missing
+   user_is_typing_secondNumber=false;
+}
+
+void MainWindow::on_pushButton_clear_released()
+{
+    ui->pushButton_add->setChecked(false);
+    ui->pushButton_minus->setChecked(false);
+    ui->pushButton_multiply->setChecked(false);
+    ui->pushButton_divide->setChecked(false);
+    user_is_typing_secondNumber=false;
+
+    ui->label_19->setText("0");
+}
+
+void MainWindow::on_pushButton_equals_released()
+{
+    double labelnumber,secondNum;
+    QString input;
+    labelnumber=0;
+
+    secondNum = ui->label_19->text().toDouble();
+
+    if(ui->pushButton_add->isChecked())
+    {
+        labelnumber = firstNum + secondNum;
+        ui->pushButton_add->setChecked(false);
+    }
+
+    else if(ui->pushButton_minus->isChecked())
+    {
+        labelnumber = firstNum - secondNum;
+        ui->pushButton_minus->setChecked(false);
+    }
+
+    else if(ui->pushButton_multiply->isChecked())
+    {
+        labelnumber = firstNum * secondNum;
+        ui->pushButton_multiply->setChecked(false);
+    }
+
+    else if(ui->pushButton_divide->isChecked())
+    {
+        labelnumber = firstNum / secondNum;
+        ui->pushButton_divide->setChecked(false);
+    }
+
+    input = QString::number(labelnumber,'g',15);
+    ui->label_19->setText(input);
+
+    user_is_typing_secondNumber=false;
+}
+
+void MainWindow::binary_operation_pressed()
+{
+    QPushButton* button = (QPushButton *)sender();
+    //double labelnumber;
+    //QString input;
+
+    firstNum = ui->label_19->text().toDouble();
+    button->setChecked(true);
+ user_is_typing_secondNumber=false;
+}
+
+void MainWindow::on_btnmodif_clicked()
+{
+    Ingredient e(ui->modif1->text().toInt(),ui->modif2->text(),ui->modif3->text().toInt(),ui->modif4->date(),ui->modif5->text());
+        bool test=e.modifier(ui->comboBox->currentText().toInt());
+        if(test){
+            QMessageBox::information(nullptr, QObject::tr("Employe"),
+                        QObject::tr("ingredient modifié avec succés.\n"), QMessageBox::Cancel);
+            ui->tab_ingredient->setModel(I.afficher());
+            ui->modif1->setText("");
+            ui->modif2->setText("");
+            ui->modif3->setText("");
+            ui->modif4->setDate(QDate(2000,01,01));
+            ui->modif5->setText("");
+
+          //  ui->id_employe_mod->setText("");
+            ui->comboBox->clear();
+            ui->comboBox->addItems(I.liste());
+
+        }
+        else{
+            QMessageBox::critical(nullptr, QObject::tr("ingredient non modifie"),
+                        QObject::tr("Echec!\n"), QMessageBox::Cancel);
+        }
+}
+
+
+void MainWindow::on_muteSound_clicked()
+{
+   sound->stop();
+}
+void MainWindow::on_actionSound_clicked()
+
+   {
+     sound->play();
+   }

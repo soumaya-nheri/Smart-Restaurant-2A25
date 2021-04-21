@@ -4,6 +4,7 @@
 #include"ingredient.h"
 #include"fournisseur.h"
 #include"menu.h"
+#include <QtMultimedia/QSound>
 namespace Ui {
 class MainWindow;
 }
@@ -113,11 +114,29 @@ private slots:
 
     void on_lineEdit_5_textChanged(const QString &arg1);
 
+
+    void digit_pressed();
+
+    void on_pushButton_dot_released();
+    void unary_operation_pressed();
+    void on_pushButton_clear_released();
+    void on_pushButton_equals_released();
+    void binary_operation_pressed();
+
+    void on_btnmodif_clicked();
+
+
+
+    void on_muteSound_clicked();
+
+    void on_actionSound_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;
     Fournisseur F;
 Menu M;
+QSound *sound;
 };
 
 #endif // MAINWINDOW_H

@@ -4,7 +4,9 @@
 #include"ingredient.h"
 #include"fournisseur.h"
 #include"menu.h"
-#include <QtMultimedia/QSound>
+
+#include <QMediaPlayer>
+#include <QSound>
 namespace Ui {
 class MainWindow;
 }
@@ -131,12 +133,41 @@ private slots:
 
     void on_actionSound_clicked();
 
+    void on_ouvrir_media_clicked();
+
+    void on_play_media_clicked();
+
+    void on_pause_media_clicked();
+
+    void on_stop_media_clicked();
+
+    void on_mute_media_clicked();
+
+    void on_volume_media_valueChanged(int value);
+
+    void on_radioButton_jour_toggled(bool checked);
+
+    void on_radioButton_nuit_toggled(bool checked);
+
+    void on_toolButton_clicked();
+
+    void on_gestion2_clicked();
+
+    void on_logout_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;
     Fournisseur F;
 Menu M;
 QSound *sound;
+QMediaPlayer *player;
+
+
+QMediaPlayer *mMediaPlayer;
+QSound *son;
+
+QMediaPlayer musicAdd;
 };
 
 #endif // MAINWINDOW_H

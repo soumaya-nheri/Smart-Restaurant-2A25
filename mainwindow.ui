@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1037</width>
-    <height>572</height>
+    <width>1080</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Gestion des Clients</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: white</string>
+   <string notr="true">background-color:white;</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
@@ -26,18 +26,17 @@ background-color: white</string>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
+      <x>150</x>
+      <y>-10</y>
       <width>911</width>
       <height>621</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white;
-</string>
+     <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="gestionforunisseur">
      <property name="styleSheet">
@@ -98,7 +97,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <property name="styleSheet">
@@ -2239,7 +2238,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <property name="styleSheet">
@@ -3440,7 +3439,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <property name="styleSheet">
@@ -4634,12 +4633,179 @@ border:none;</string>
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QGroupBox" name="groupBox_33">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>431</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Affichage</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_53">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_47">
+         <item>
+          <spacer name="verticalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>Thème</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_117">
+           <item>
+            <widget class="QRadioButton" name="radioButton_jour">
+             <property name="text">
+              <string>Jour</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_nuit">
+             <property name="text">
+              <string>Nuit</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_54">
+         <property name="text">
+          <string>Son</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_69">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_159">
+           <item>
+            <widget class="QToolButton" name="ouvrir_media">
+             <property name="styleSheet">
+              <string notr="true">
+QToolButton {
+ 
+width: 60px; 
+	height:20px;}</string>
+             </property>
+             <property name="text">
+              <string>ouvrir</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="play_media">
+             <property name="text">
+              <string>play</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pause_media">
+             <property name="text">
+              <string>pause</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="stop_media">
+             <property name="text">
+              <string>stop</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_162">
+           <item>
+            <widget class="QProgressBar" name="avancement_media">
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_163">
+           <item>
+            <widget class="QPushButton" name="mute_media">
+             <property name="text">
+              <string>mute</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="volume_media">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_152"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
+      <x>0</x>
+      <y>10</y>
       <width>151</width>
       <height>481</height>
      </rect>
@@ -4675,7 +4841,10 @@ QGroupBox::title {
         <number>2</number>
        </property>
        <item>
-        <widget class="QPushButton" name="gestion4">
+        <widget class="QToolButton" name="gestion4">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="font">
           <font>
            <family>Segoe Print</family>
@@ -4683,9 +4852,11 @@ QGroupBox::title {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/Files/ingredients (1).png);
+          <string notr="true">QToolButton{background-image: url(:/Files/ingredients (1).png);
  background-repeat: no-repeat;
-background-position: center;</string>
+background-position: center;
+width: 125px; 
+	height:30px;}</string>
          </property>
          <property name="text">
           <string/>
@@ -4699,12 +4870,6 @@ background-position: center;</string>
            <width>50</width>
            <height>30</height>
           </size>
-         </property>
-         <property name="default">
-          <bool>false</bool>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -4730,11 +4895,15 @@ background-position: center;</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="gestion1">
+        <widget class="QToolButton" name="gestion1">
          <property name="styleSheet">
-          <string notr="true"> background-repeat: no-repeat;
+          <string notr="true">
+
+QToolButton{background-image: url(:/Files/delivery-truck (1).png);
+ background-repeat: no-repeat;
 background-position: center;
-background-image: url(:/Files/delivery-truck (1).png);</string>
+width: 125px; 
+	height:30px;}</string>
          </property>
          <property name="text">
           <string/>
@@ -4773,11 +4942,14 @@ background-image: url(:/Files/delivery-truck (1).png);</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="gestion5">
+        <widget class="QToolButton" name="gestion5">
          <property name="styleSheet">
-          <string notr="true"> background-repeat: no-repeat;
+          <string notr="true">
+QToolButton{background-image: url(:/Files/fast-food (3).png);
+ background-repeat: no-repeat;
 background-position: center;
-background-image: url(:/Files/fast-food (3).png);</string>
+width: 125px; 
+	height:30px;}</string>
          </property>
          <property name="text">
           <string/>
@@ -4816,11 +4988,14 @@ background-image: url(:/Files/fast-food (3).png);</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="gestion2">
+        <widget class="QToolButton" name="gestion2">
          <property name="styleSheet">
-          <string notr="true"> background-repeat: no-repeat;
+          <string notr="true">
+QToolButton {background-image: url(:/Files/settings.png);
+ background-repeat: no-repeat;
 background-position: center;
-background-image: url(:/Files/settings.png);</string>
+width: 125px; 
+	height:30px;}</string>
          </property>
          <property name="text">
           <string/>
@@ -4859,7 +5034,7 @@ background-image: url(:/Files/settings.png);</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="logout_button">
+        <widget class="QToolButton" name="logout_button">
          <property name="font">
           <font>
            <family>Segoe Print</family>
@@ -4868,9 +5043,12 @@ background-image: url(:/Files/settings.png);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true"> background-repeat: no-repeat;
+          <string notr="true">
+QToolButton {background-image: url(:/Files/exit.png);
+ background-repeat: no-repeat;
 background-position: center;
-background-image: url(:/Files/exit.png);</string>
+width: 125px; 
+	height:30px;}</string>
          </property>
          <property name="text">
           <string/>
@@ -4897,7 +5075,7 @@ background-image: url(:/Files/exit.png);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1037</width>
+     <width>1080</width>
      <height>22</height>
     </rect>
    </property>

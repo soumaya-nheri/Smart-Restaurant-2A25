@@ -16,6 +16,9 @@
 #include "notif.h"
 #include <QSound>
 #include <QMediaPlayer>
+#include <QSound>
+#include <QFileDialog>
+#include <QList>
 double firstNum;
 bool user_is_typing_secondNumber=false;
 
@@ -55,7 +58,27 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tab_ingredient->setModel(I.afficher());
      ui->tab_fournisseur->setModel(F.afficherfourniseeur());
      ui->tab_menu->setModel(M.affichermenu());
+//configuration
 
+     mMediaPlayer = new QMediaPlayer(this);
+
+     connect(mMediaPlayer , &QMediaPlayer::positionChanged, [&](qint64 pos){
+
+         ui->avancement_media->setValue(pos);
+
+     });
+
+     connect(mMediaPlayer , &QMediaPlayer::durationChanged, [&](qint64 dur){
+
+         ui->avancement_media->setMaximum(dur);
+
+     });
+
+
+     player = new QMediaPlayer(this);
+     player->setMedia(QUrl::fromLocalFile("D:/Users/dhiaa/Desktop/Wedding_planner_2A1/INTEGRATION/cant.wav"));
+
+     player->setVolume(50);
 
 
 
@@ -704,6 +727,10 @@ void MainWindow::on_gestion5_clicked()
 {
      ui->stackedWidget->setCurrentIndex(2);
 }
+void MainWindow::on_gestion2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(3);
+}
 
 
 void MainWindow::on_lineEdit_2_textChanged(const QString &arg1)
@@ -959,3 +986,76 @@ void MainWindow::on_actionSound_clicked()
    {
      sound->play();
    }
+//configuration code
+
+void MainWindow::on_ouvrir_media_clicked()
+{
+
+
+    QString filename = QFileDialog::getOpenFileName(this, "ouvrir");
+    qDebug() << "Loading File"<< filename;
+
+    if (filename.isEmpty())
+
+    {
+
+        return;
+
+    }
+
+    mMediaPlayer->setMedia(QUrl::fromLocalFile(filename));
+
+    mMediaPlayer->setVolume(ui->volume_media->value());
+
+    on_play_media_clicked();
+}
+
+
+
+void MainWindow::on_play_media_clicked()
+{
+    mMediaPlayer->play();
+}
+
+void MainWindow::on_pause_media_clicked()
+{
+    mMediaPlayer->pause();
+}
+
+void MainWindow::on_stop_media_clicked()
+{
+    mMediaPlayer->stop();
+}
+
+void MainWindow::on_mute_media_clicked()
+{
+    if (ui->mute_media->text() == "Mute")
+
+    {
+
+        mMediaPlayer->setMuted(true);
+
+        ui->mute_media->setText("Unmute");
+
+    }
+
+    else {
+
+        mMediaPlayer->setMuted(false);
+
+        ui->mute_media->setText("Mute");
+
+    }
+}
+
+void MainWindow::on_volume_media_valueChanged(int value)
+{
+    mMediaPlayer->setVolume(value);
+}
+
+
+
+
+
+
+

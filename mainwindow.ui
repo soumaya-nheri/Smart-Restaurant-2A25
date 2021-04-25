@@ -1023,13 +1023,35 @@ text-align: left;
            <rect>
             <x>470</x>
             <y>1</y>
-            <width>381</width>
-            <height>41</height>
+            <width>401</width>
+            <height>51</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">border: 2px solid #87CEEB;
 border-radius: 8px;</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="radioButton_actualiser">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>20</y>
+            <width>82</width>
+            <height>17</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QRadioButton
+{
+	
+	color: rgb(0, 0, 0);
+	
+	font: 87 6pt &quot;Arial Black&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>Actualiser</string>
           </property>
          </widget>
         </widget>

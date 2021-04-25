@@ -58,6 +58,7 @@ private slots:
     void on_Barkia_clicked();
 
     void on_pb_logout_clicked();
+    void on_radioButton_actualiser_clicked();
 
 private:
     Ui::MainWindow *ui;

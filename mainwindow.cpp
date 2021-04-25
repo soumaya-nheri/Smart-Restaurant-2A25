@@ -8,6 +8,7 @@
 #include<QDate>
 #include "src/SmtpMime"
 #include "notif.h"
+#include<QSqlQuery>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -51,7 +52,7 @@ void MainWindow::on_BA_clicked()
         /*QMessageBox::information(nullptr, QObject::tr("ok"),
                      QObject::tr("ajout effectuer.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel)*/;
-         notif n("Error","This Account is Already Exist ");
+         notif n("ajout","This Account Exist now ");
                                   n.afficher();
          ui->tab_employe->setModel(E.afficher());
          ui->lineEdit->setText("");
@@ -294,4 +295,18 @@ void MainWindow::on_Barkia_clicked()
 void MainWindow::on_pb_logout_clicked()
 {
     ui->sw_main->setCurrentIndex(0);
+}
+void MainWindow::on_radioButton_actualiser_clicked()
+{
+
+    QSqlQueryModel * modal=new QSqlQueryModel();
+
+
+    QSqlQuery* qry=new QSqlQuery();
+
+    qry->prepare("select * from EMLOYES ");
+    qry->exec();
+
+    modal->setQuery(*qry);
+    ui->tab_employe->setModel(modal);
 }

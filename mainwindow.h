@@ -155,6 +155,28 @@ private slots:
 
     void on_logout_button_clicked();
 
+    void on_toolButton_7_clicked();
+
+    void on_newfile_clicked();
+
+    void on_copier_clicked();
+
+    void on_coller_clicked();
+
+    void on_couper_clicked();
+
+    void on_redo_clicked();
+
+    void on_undo_clicked();
+
+    void on_savefile_clicked();
+
+    void on_openfile_clicked();
+
+    void on_clear_clicked();
+
+    void on_imprimer_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient I;
@@ -168,6 +190,7 @@ QMediaPlayer *mMediaPlayer;
 QSound *son;
 
 QMediaPlayer musicAdd;
+  QString currentFile="";
 };
 
 #endif // MAINWINDOW_H

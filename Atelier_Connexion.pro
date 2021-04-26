@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
     fournisseur.cpp \
+    gestion_produit.cpp \
     ingredient.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     fournisseur.h \
+    gestion_produit.h \
     ingredient.h \
         mainwindow.h \
     connection.h \
@@ -44,6 +46,7 @@ HEADERS += \
     notif.h
 
 FORMS += \
+        gestion_produit.ui \
         mainwindow.ui
 
 # Default rules for deployment.

@@ -27,25 +27,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    client.cpp \
+    commande.cpp \
     fournisseur.cpp \
+    gestion_client.cpp \
     gestion_produit.cpp \
     ingredient.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     menu.cpp \
-    notif.cpp
+    notif.cpp \
+    reservation.cpp
 
 HEADERS += \
+    client.h \
+    commande.h \
     fournisseur.h \
+    gestion_client.h \
     gestion_produit.h \
     ingredient.h \
         mainwindow.h \
     connection.h \
     menu.h \
-    notif.h
+    notif.h \
+    reservation.h
 
 FORMS += \
+        gestion_client.ui \
         gestion_produit.ui \
         mainwindow.ui
 

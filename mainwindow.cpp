@@ -3,7 +3,7 @@
 
 #include <gestion_produit.h>
 #include <gestion_client.h>
-
+#include <gestion_employe.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -38,4 +38,10 @@ void MainWindow::on_pushButton_2_clicked()
 {
     gestion_client *c=new gestion_client();
           c->show();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    gestionemploye = new gestion_employe(this);
+              gestionemploye->show();
 }

@@ -3,7 +3,11 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
+QT += gui
+QT += gui charts
+QT += core widgets charts
+Qt+= charts
+QT       += core gui sql network charts
 QT       += core gui sql
 QT       +=  printsupport
 QT       += core
@@ -27,36 +31,74 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    Employe.cpp \
     client.cpp \
     commande.cpp \
     fournisseur.cpp \
     gestion_client.cpp \
+    gestion_employe.cpp \
     gestion_produit.cpp \
+    historique1.cpp \
     ingredient.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     menu.cpp \
     notif.cpp \
-    reservation.cpp
+    profils.cpp \
+    reservation.cpp \
+    src/emailaddress.cpp \
+    src/mimeattachment.cpp \
+    src/mimecontentformatter.cpp \
+    src/mimefile.cpp \
+    src/mimehtml.cpp \
+    src/mimeinlinefile.cpp \
+    src/mimemessage.cpp \
+    src/mimemultipart.cpp \
+    src/mimepart.cpp \
+    src/mimetext.cpp \
+    src/quotedprintable.cpp \
+    src/smtpclient.cpp \
+    statistiques.cpp
 
 HEADERS += \
+    Employe.h \
     client.h \
     commande.h \
     fournisseur.h \
     gestion_client.h \
+    gestion_employe.h \
     gestion_produit.h \
+    historique1.h \
     ingredient.h \
         mainwindow.h \
     connection.h \
     menu.h \
     notif.h \
-    reservation.h
+    profils.h \
+    reservation.h \
+    src/SmtpMime \
+    src/emailaddress.h \
+    src/mimeattachment.h \
+    src/mimecontentformatter.h \
+    src/mimefile.h \
+    src/mimehtml.h \
+    src/mimeinlinefile.h \
+    src/mimemessage.h \
+    src/mimemultipart.h \
+    src/mimepart.h \
+    src/mimetext.h \
+    src/quotedprintable.h \
+    src/smtpclient.h \
+    src/smtpexports.h \
+    statistiques.h
 
 FORMS += \
         gestion_client.ui \
+        gestion_employe.ui \
         gestion_produit.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,3 +1,8 @@
+QT       +=  printsupport
+QT += gui
+
+
+
 #-------------------------------------------------
 #
 # Project created by QtCreator 2021-04-05T00:03:36
@@ -27,6 +32,7 @@ DEFINES += SMTP_BUILD
 CONFIG += c++11
 
 SOURCES += \
+    historique.cpp \
         main.cpp \
         livrasion.cpp \
     src/emailaddress.cpp \
@@ -46,6 +52,7 @@ SOURCES += \
     liv.cpp
 
 HEADERS += \
+    historique.h \
         livrasion.h \
     src/emailaddress.h \
     src/mimeattachment.h \
@@ -72,3 +79,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ressource.qrc

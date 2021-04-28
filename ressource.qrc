@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>logo-livraison-homme-velo-courrier_1308-46728.jpg</file>
+        <file>silhouette-de-la-livraison-scooter-99678280.jpg</file>
+    </qresource>
+</RCC>

@@ -1,7 +1,14 @@
 #include "livrasion.h"
 #include "ui_livrasion.h"
 #include <QMessageBox>
-
+#include"historique.h"
+#include<QDebug>
+#include <QTextDocument>
+#include <QTextStream>
+#include <QDebug>
+#include<QStringList>
+#include<QTableView>
+#include <QPrintDialog>
 Livrasion::Livrasion(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Livrasion)
@@ -99,11 +106,20 @@ void Livrasion::on_pb_modifer_livreur_clicked()
 }
 
 void Livrasion::on_pb_supp_livreur_clicked()
-{
+{int id;
     Livreur _l_l;
     _l_l.setId(ui->cb_supp_livreur->currentText().toInt());
     if(_l_l.supprimer()) {
         refrech();
+        foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
+                             le->clear();}
+                        QFile file("C:/Users/FIRAS/Desktop/firas/gestion livreur/his/his.txt");
+                        if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+                            return;
+                        QTextStream cout(&file);
+                        QString id_string= QString::number(id);
+                        QString message2="\n livreur a ete supprimé sous le code"+id_string+"";
+                        cout << message2;
 
         QMessageBox::information(nullptr, QObject::tr("Supprimer un livreur"),
                            QObject::tr("Supprime avec succès !.\n"
@@ -198,3 +214,60 @@ void Livrasion::on_cb_sort_liv_currentTextChanged(const QString &arg1)
 {
     ui->tv_liv->setModel(L.sort(arg1));
 }
+void Livrasion::ouvrirlivraison()
+{
+    QFile file ("C:/Users/FIRAS/Desktop/firas/gestion livreur/his/his.txt");
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::information(0,"info",file.errorString());
+    }
+    QTextStream in (&file);
+   ui->textHisto->setText(in.readAll());
+
+}
+void Livrasion::on_buttonHis_clicked()
+{
+    QString searchString = ui->searchHis->text();
+           QTextDocument *document = ui->textHisto->document();
+ouvrirlivraison();           bool found = false;
+
+           document->undo();
+
+           if (searchString.isEmpty()) {
+               QMessageBox::information(this, tr("Empty Search Field"),
+                                        tr("The search field is empty. "
+                                           "Please enter a word and click Find."));
+           } else {
+               QTextCursor highlightCursor(document);
+               QTextCursor cursor(document);
+
+               cursor.beginEditBlock();
+
+
+               QTextCharFormat plainFormat(highlightCursor.charFormat());
+               QTextCharFormat colorFormat = plainFormat;
+               colorFormat.setForeground(Qt::red);
+
+               while (!highlightCursor.isNull() && !highlightCursor.atEnd()) {
+                   highlightCursor = document->find(searchString, highlightCursor,
+                                                    QTextDocument::FindWholeWords);
+
+                   if (!highlightCursor.isNull()) {
+                       found = true;
+                       highlightCursor.movePosition(QTextCursor::WordRight,
+                                                    QTextCursor::KeepAnchor);
+                       highlightCursor.mergeCharFormat(colorFormat);
+
+                   }
+               }
+
+
+               cursor.endEditBlock();
+
+               if (found == false) {
+                   QMessageBox::information(this, tr("Word Not Found"),
+                                            tr("Sorry, the word cannot be found."));
+               }
+           }
+       }
+

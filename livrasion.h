@@ -44,6 +44,9 @@ private slots:
 
     void on_cb_sort_liv_currentTextChanged(const QString &arg1);
 
+    void on_buttonHis_clicked();
+    void ouvrirlivraison();
+
 private:
     Ui::Livrasion *ui;
     Livreur l;

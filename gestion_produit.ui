@@ -3907,7 +3907,7 @@ border: none;
         <x>10</x>
         <y>100</y>
         <width>391</width>
-        <height>31</height>
+        <height>32</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">

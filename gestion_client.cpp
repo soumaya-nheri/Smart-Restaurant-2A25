@@ -451,7 +451,7 @@ void gestion_client::on_P_supprimer_7_clicked()
     else
         QMessageBox::critical(nullptr, QObject::tr("not ok"),
                     QObject::tr("suppression non effectuer.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+                                "Click Cancel     to exit."), QMessageBox::Cancel);
 }
 void gestion_client::on_tab_menu_5_activated(const QModelIndex &index)
 {

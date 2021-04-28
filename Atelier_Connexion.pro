@@ -38,8 +38,12 @@ SOURCES += \
     gestion_client.cpp \
     gestion_employe.cpp \
     gestion_produit.cpp \
+    gestion_revenue.cpp \
     historique1.cpp \
     ingredient.cpp \
+    liv.cpp \
+    livraison.cpp \
+    livreur.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -69,8 +73,12 @@ HEADERS += \
     gestion_client.h \
     gestion_employe.h \
     gestion_produit.h \
+    gestion_revenue.h \
     historique1.h \
     ingredient.h \
+    liv.h \
+    livraison.h \
+    livreur.h \
         mainwindow.h \
     connection.h \
     menu.h \
@@ -97,6 +105,7 @@ FORMS += \
         gestion_client.ui \
         gestion_employe.ui \
         gestion_produit.ui \
+        livraison.ui \
         mainwindow.ui \
         statistiques.ui
 

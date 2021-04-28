@@ -26,6 +26,10 @@ private slots:
 
     void on_Gestion_event_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
  gestion_employe * gestionemploye;

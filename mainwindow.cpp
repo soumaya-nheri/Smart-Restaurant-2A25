@@ -5,6 +5,8 @@
 #include <gestion_client.h>
 #include <gestion_employe.h>
 #include <evenementinter.h>
+#include <livraison.h>
+#include <gestion_revenue.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -52,4 +54,12 @@ void MainWindow::on_Gestion_event_clicked()
     EvenementInter *e = new EvenementInter();
               e->show();
 }
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+ livraison *l=new livraison();
+ l->show();
+}
+
 

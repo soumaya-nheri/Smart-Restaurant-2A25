@@ -28,9 +28,9 @@ const QString MULTI_PART_NAMES[] = {
     "multipart/report",        //    Report
     "multipart/signed",        //    Signed
     "multipart/encrypted"      //    Encrypted
-};
+}
 
-MimeMultiPart::MimeMultiPart(MultiPartType type)
+
 {
     this->type = type;
     this->cType = MULTI_PART_NAMES[this->type];

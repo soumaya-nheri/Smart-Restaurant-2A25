@@ -274,16 +274,16 @@ QString MimeMessage::toString()
             switch (hEncoding)
             {
             case MimePart::Base64:
-                mime += " =?utf-8?B?" + QByteArray().append(replyTo->getName()).toBase64() + "?=";
+
                 break;
             case MimePart::QuotedPrintable:
-                mime += " =?utf-8?Q?" + QuotedPrintable::encode(QByteArray().append(replyTo->getName())).replace(' ', "_").replace(':',"=3A") + "?=";
+
                 break;
-            default:
-                mime += " " + replyTo->getName();
+            default
+
             }
         }
-        mime += " <" + replyTo->getAddress() + ">\r\n";
+
     }
 
     /* ---------------------------------- */

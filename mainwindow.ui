@@ -25,7 +25,7 @@
    <widget class="QStackedWidget" name="sw_main">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>-10</x>
       <y>-10</y>
       <width>1161</width>
       <height>711</height>
@@ -35,7 +35,7 @@
      <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLineEdit" name="le_login">
@@ -106,8 +106,8 @@ border:none;</string>
      <widget class="QPushButton" name="pb_login">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>290</y>
+        <x>510</x>
+        <y>270</y>
         <width>141</width>
         <height>51</height>
        </rect>
@@ -173,9 +173,24 @@ QGroupBox::title {
           <number>2</number>
          </property>
          <item>
+          <widget class="QLabel" name="label_38">
+           <property name="styleSheet">
+            <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
+	color: #454544;
+	font-weight: bold;
+	font-size: 11px;
+border:none;</string>
+           </property>
+           <property name="text">
+            <string>EMPLOYE</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="Iheb">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/Files/stock.png);</string>
+            <string notr="true">background-image: url(:/Files/gestion des employes.png);</string>
            </property>
            <property name="text">
             <string/>
@@ -193,122 +208,31 @@ QGroupBox::title {
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_33">
+          <widget class="QLabel" name="label_39">
            <property name="styleSheet">
             <string notr="true">background-color: transparent;
+font: 8pt &quot;Castellar&quot;;
 	color: #454544;
 	font-weight: bold;
-	font-size: 7px;</string>
+	font-size: 11px;
+border:none;</string>
            </property>
-           <property name="text">
-            <string>EMPLOYE</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="Barkia">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/reservation/ireservation.png</normaloff>:/reservation/ireservation.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_34">
            <property name="text">
             <string>PROFILs</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="Elaa">
+          <widget class="QPushButton" name="Barkia">
+           <property name="styleSheet">
+            <string notr="true">background-image: url(:/Files/gestion des employes.png);</string>
+           </property>
            <property name="text">
             <string/>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>:/staff/istaff.png</normaloff>:/staff/istaff.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_35">
-           <property name="text">
-            <string>      Staff</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="Sara">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/stock/istock.png</normaloff>:/stock/istock.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_36">
-           <property name="text">
-            <string>      Stock</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="configuration">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/configuration/iconfiguration.png</normaloff>:/configuration/iconfiguration.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>50</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_37">
-           <property name="text">
-            <string> Configuration</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="logout_button">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/log/ilog.png</normaloff>:/log/ilog.png</iconset>
+             <normaloff>:/reservation/ireservation.png</normaloff>:/reservation/ireservation.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -332,7 +256,7 @@ QGroupBox::title {
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="accueil"/>
       <widget class="QWidget" name="gestionproduit">
@@ -577,7 +501,7 @@ border: none;
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_3">
        <widget class="QTabWidget" name="b_supprimer">
@@ -630,7 +554,7 @@ QLineEdit {
 }</string>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>5</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -1032,11 +956,41 @@ text-align: left;
 border-radius: 8px;</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="stats_clicked">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>310</y>
+            <width>91</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+          </property>
+          <property name="text">
+           <string>statistiques</string>
+          </property>
+         </widget>
          <widget class="QRadioButton" name="radioButton_actualiser">
           <property name="geometry">
            <rect>
-            <x>300</x>
-            <y>20</y>
+            <x>260</x>
+            <y>10</y>
             <width>82</width>
             <height>17</height>
            </rect>
@@ -1052,6 +1006,38 @@ border-radius: 8px;</string>
           </property>
           <property name="text">
            <string>Actualiser</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="pdf">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>240</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#778899;
+border: none;
+font-size:20px;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#87CEEB;
+border: none;
+text-align: left;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Imprimer PDF</string>
           </property>
          </widget>
         </widget>
@@ -1550,6 +1536,83 @@ border: none;
           </property>
          </widget>
         </widget>
+        <widget class="QWidget" name="tab_11">
+         <attribute name="title">
+          <string>historique</string>
+         </attribute>
+         <widget class="QPushButton" name="pushButtonHisto">
+          <property name="geometry">
+           <rect>
+            <x>540</x>
+            <y>120</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Black</family>
+            <pointsize>8</pointsize>
+            <weight>10</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+          </property>
+          <property name="text">
+           <string>Recherche Historique</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textHisto">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>180</y>
+            <width>471</width>
+            <height>241</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Modern No. 20</family>
+            <pointsize>8</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="historique">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>20</y>
+            <width>301</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"> border: 2px solid #87CEEB;
+border-radius: 8px;</string>
+          </property>
+         </widget>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="page_4">
@@ -1603,7 +1666,7 @@ QLineEdit {
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_6">
          <attribute name="title">
@@ -2056,6 +2119,69 @@ width: 100%;
         </widget>
        </widget>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="muteSound">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>Mute</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="actionSound">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	font: 87 8pt &quot;Segoe UI Black&quot;;
+color: #dcdcdc;
+background:#778899;
+border: none;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+
+}
+QPushButton:hover {
+color:#fff;
+font: 87 8pt &quot;Segoe UI Black&quot;;
+background:#ADD8E6;
+border: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>Play</string>
+      </property>
      </widget>
     </widget>
    </widget>

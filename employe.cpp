@@ -2,10 +2,7 @@
 #include<QSqlQuery>
 #include<QtDebug>
 #include<QObject>
-
 #include<QStringList>
-
-
 
 Employe::Employe()
 {
@@ -138,9 +135,9 @@ QSqlQueryModel* Employe:: trier1()
     model->setQuery("select * from EMPLOYES order by NOM ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-     model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("SALAIRE"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
+      model->setHeaderData(4, Qt::Horizontal, QObject::tr("SALAIRE"));
 
 
     return model;
@@ -153,9 +150,9 @@ QSqlQueryModel* Employe:: trier()
     model->setQuery("select * from EMPLOYES order by (DATE_NAISSANCE)DESC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-     model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("SALAIRE"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
+      model->setHeaderData(4, Qt::Horizontal, QObject::tr("SALAIRE"));
     return model;
 }
 QSqlQueryModel* Employe:: trier2()
@@ -166,9 +163,9 @@ QSqlQueryModel* Employe:: trier2()
     model->setQuery("select * from EMPLOYES order by (SALAIRE) ASC");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("SALAIRE"));
+      model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
+      model->setHeaderData(4, Qt::Horizontal, QObject::tr("SALAIRE"));
 
 
     return model;
@@ -182,9 +179,9 @@ QSqlQueryModel *Employe::chercher_emp_avancee(QString NOM,QString PRENOM )
         model->setQuery("SELECT * FROM EMPLOYES WHERE upper(nom) Like upper('"+NOM+"%') and upper (prenom)like upper ('"+PRENOM+"%')");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
-        model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("SALAIRE"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
+          model->setHeaderData(4, Qt::Horizontal, QObject::tr("SALAIRE"));
         qDebug() << model;
         return model ;
     }
@@ -205,9 +202,9 @@ QSqlQueryModel * Employe::chercher_emp_nom_id(const QString &str){
 QSqlQueryModel * Employe::chercher_employe_par_nom( QString nom)
  {
 
-    {QSqlQueryModel *model = new QSqlQueryModel;
+    {QSqlQueryModel *model = new QSqlQueryModel; //tableau de l'affichage
         model->setQuery("SELECT * FROM EMPLOYES WHERE NOM like '"+nom+"%' ");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));    //colonne du tableau de l'affichage
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
@@ -267,4 +264,18 @@ QSqlQueryModel* Employe::search(QString input)
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_NAISSANCE"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("SALAIRE"));
     return model;
+}
+int Employe::calcul_employe(int min, int max){
+    QSqlQuery query;
+    query.prepare("select *from EMPLOYES where salaire between :min and :max");
+    query.bindValue(":min",min);
+    query.bindValue(":max",max);
+    query.exec();
+
+    int total=0;
+    while(query.next()){
+        total++;
+    }
+
+    return total;
 }

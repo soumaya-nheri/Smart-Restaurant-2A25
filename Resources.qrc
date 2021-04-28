@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/Files">
         <file>stock.png</file>
-        <file>hand-drawn-healthy-food-background_23-2148241421.jpg</file>
-        <file>phoyo.jpg</file>
+        <file>music.wav</file>
+        <file>Click.mp3</file>
+        <file>gestion des employes.png</file>
+        <file>gestion des abonnes.png</file>
     </qresource>
 </RCC>

@@ -3,7 +3,9 @@
 #include <QMainWindow>
 #include"Employe.h"
 #include "profils.h"
-
+#include <QtMultimedia/QSound>
+#include<QMediaPlayer>
+#include <QDebug>
 namespace Ui {
 class MainWindow;
 }
@@ -58,12 +60,23 @@ private slots:
     void on_Barkia_clicked();
 
     void on_pb_logout_clicked();
-    void on_radioButton_actualiser_clicked();
 
+    void on_stats_clicked_clicked();
+    void on_radioButton_actualiser_clicked();
+    void on_pdf_clicked();
+
+    void on_muteSound_clicked();
+
+    void on_actionSound_clicked();
+    void on_pushButtonHisto_clicked();
+  void ouvriremploye();
 private:
     Ui::MainWindow *ui;
     Employe E;
     Profils P;
+    QSound *sound;
+     QMediaPlayer* player;
+
 };
 
 #endif // MAINWINDOW_H

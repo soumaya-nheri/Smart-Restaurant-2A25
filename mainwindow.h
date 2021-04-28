@@ -24,6 +24,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_Gestion_event_clicked();
+
 private:
     Ui::MainWindow *ui;
  gestion_employe * gestionemploye;

@@ -19,7 +19,7 @@
 #include <QSound>
 #include <QFileDialog>
 #include <QList>
-
+#include "excel.h"
 double firstNum;
 bool user_is_typing_secondNumber=false;
 
@@ -58,6 +58,7 @@ gestion_produit::gestion_produit(QWidget *parent) :
        ui->tab_ingredient->setModel(I.afficher());
         ui->tab_fournisseur->setModel(F.afficherfourniseeur());
         ui->tab_menu->setModel(M.affichermenu());
+         ui->tab_fournisseur->setModel(F.afficherfourniseeur());
    //configuration
 
         mMediaPlayer = new QMediaPlayer(this);
@@ -1199,3 +1200,34 @@ void gestion_produit::on_logout_button_clicked()
 }
 
 
+
+void gestion_produit::on_pushButton_clicked()
+{
+
+}
+
+void gestion_produit::on_excel_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                        tr("Excel Files (*.xls)"));
+        if (fileName.isEmpty())
+            return;
+
+        ExportExcelObject obj(fileName, "Sheet1", ui->tab_fournisseur);
+
+
+        obj.addField(0, "nom", "char(20)");
+        obj.addField(1, "prenom", "char(20)");
+        obj.addField(2, "cin", "char(20)");
+        obj.addField(3, "adresse", "char(20)");
+        obj.addField(4, "email", "char(20)");
+
+
+        int retVal = obj.export2Excel();
+        if( retVal > 0)
+        {
+            QMessageBox::information(this, tr("Done"),
+                                     QString(tr("exported!")).arg(retVal)
+                                     );
+        }
+}

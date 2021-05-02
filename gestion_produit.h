@@ -181,6 +181,8 @@ private slots:
 
 
 
+    void on_excel_clicked();
+
 private:
     Ui::gestion_produit *ui;
     Ingredient I;

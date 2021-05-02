@@ -27,7 +27,7 @@ background-color: white</string>
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>110</y>
+      <y>170</y>
       <width>241</width>
       <height>151</height>
      </rect>
@@ -40,7 +40,7 @@ background-color: white</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>110</y>
+      <y>160</y>
       <width>191</width>
       <height>171</height>
      </rect>
@@ -49,16 +49,35 @@ background-color: white</string>
      <string>iheb</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1111</width>
-     <height>22</height>
-    </rect>
-   </property>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>432</y>
+      <width>131</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>510</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Files/Play.png);</string>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

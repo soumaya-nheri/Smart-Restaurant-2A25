@@ -7,7 +7,7 @@
 QT       += core gui sql
 QT       +=  printsupport
 QT       += core
-QT       += multimedia
+QT       += multimedia multimediawidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -27,27 +27,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    excel.cpp \
     fournisseur.cpp \
     gestion_produit.cpp \
     ingredient.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    mainwindowvideo.cpp \
     menu.cpp \
     notif.cpp
 
 HEADERS += \
+    excel.h \
     fournisseur.h \
     gestion_produit.h \
     ingredient.h \
         mainwindow.h \
     connection.h \
+    mainwindowvideo.h \
     menu.h \
     notif.h
 
 FORMS += \
         gestion_produit.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        mainwindowvideo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

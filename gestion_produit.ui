@@ -92,7 +92,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_7">
       <property name="styleSheet">
@@ -241,6 +241,37 @@ text-align: left;
        </property>
        <property name="text">
         <string>Imprimer PDF</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="excel">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>360</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #fff;
+background:#87CEEB;
+border: none;
+font-size:15px;
+font-family:Segoe Print;
+text-align: left;
+border: 1px solid #87CEEB;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#535353;
+border: none;
+text-align: left;
+}</string>
+       </property>
+       <property name="text">
+        <string>excel</string>
        </property>
       </widget>
      </widget>
@@ -4908,7 +4939,7 @@ background-color : white;
        <x>430</x>
        <y>20</y>
        <width>381</width>
-       <height>571</height>
+       <height>311</height>
       </rect>
      </property>
     </widget>
@@ -4918,7 +4949,7 @@ background-color : white;
        <x>820</x>
        <y>20</y>
        <width>131</width>
-       <height>571</height>
+       <height>350</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -5110,6 +5141,82 @@ width: 125px;
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QCalendarWidget" name="calendarWidget">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>410</y>
+       <width>256</width>
+       <height>190</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>370</y>
+       <width>323</width>
+       <height>42</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="topbarLayout">
+      <item>
+       <widget class="QLabel" name="dayEventsLabel">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>You have no events today.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="topbarSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="newEventButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>New Event</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="todayButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Today</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
         </property>
        </widget>
       </item>

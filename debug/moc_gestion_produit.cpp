@@ -287,6 +287,7 @@ void gestion_produit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 26: _t->on_trifour_3_clicked(); break;
         case 27: _t->on_pdffour_clicked(); break;
 
+
         case 30: _t->on_BAmenu_clicked(); break;
         case 31: _t->on_P_supprimer_3_clicked(); break;
         case 32: _t->on_modifmenub_clicked(); break;

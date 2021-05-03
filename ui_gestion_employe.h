@@ -40,11 +40,6 @@ public:
     QWidget *centralwidget;
     QStackedWidget *sw_main;
     QWidget *page;
-    QLineEdit *le_login;
-    QLineEdit *le_password;
-    QLabel *label_13;
-    QLabel *label_14;
-    QPushButton *pb_login;
     QWidget *page_2;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_6;
@@ -176,53 +171,6 @@ public:
         sw_main->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
-        le_login = new QLineEdit(page);
-        le_login->setObjectName(QStringLiteral("le_login"));
-        le_login->setGeometry(QRect(460, 160, 241, 31));
-        le_password = new QLineEdit(page);
-        le_password->setObjectName(QStringLiteral("le_password"));
-        le_password->setGeometry(QRect(460, 220, 241, 31));
-        le_password->setEchoMode(QLineEdit::Password);
-        label_13 = new QLabel(page);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(344, 170, 81, 21));
-        label_13->setStyleSheet(QLatin1String("background-color: transparent;\n"
-"font: 8pt \"Castellar\";\n"
-"	color: #454544;\n"
-"	font-weight: bold;\n"
-"	font-size: 13px;\n"
-"border:none;"));
-        label_14 = new QLabel(page);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(324, 230, 81, 20));
-        label_14->setStyleSheet(QLatin1String("background-color: transparent;\n"
-"font: 8pt \"Castellar\";\n"
-"	color: #454544;\n"
-"	font-weight: bold;\n"
-"	font-size: 13px;\n"
-"border:none;"));
-        pb_login = new QPushButton(page);
-        pb_login->setObjectName(QStringLiteral("pb_login"));
-        pb_login->setGeometry(QRect(510, 270, 141, 51));
-        pb_login->setStyleSheet(QLatin1String(" display: inline-block;\n"
-"  padding: 15px 25px;\n"
-"  font-size: 24px;\n"
-"  cursor: pointer;\n"
-"  text-align: center;\n"
-"  text-decoration: none;\n"
-"  outline: none;\n"
-"  color: #fff;\n"
-"  background-color: #4682B4;\n"
-"  border: none;\n"
-"  border-radius: 15px;\n"
-"  box-shadow: 0 9px #999;\n"
-"}\n"
-"QPushButton:hover {\n"
-"color:#fff;\n"
-"background:#87CEEB;\n"
-"border: none;\n"
-"background-color: ;\n"
-""));
         sw_main->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
@@ -1380,12 +1328,12 @@ public:
 
         retranslateUi(gestion_employe);
 
-        sw_main->setCurrentIndex(1);
-        stackedWidget->setCurrentIndex(0);
+        sw_main->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(1);
-        stackedWidget_3->setCurrentIndex(1);
-        st_menu->setCurrentIndex(1);
-        b_supprimer->setCurrentIndex(1);
+        stackedWidget_3->setCurrentIndex(0);
+        st_menu->setCurrentIndex(0);
+        b_supprimer->setCurrentIndex(5);
         phofileeeee->setCurrentIndex(1);
 
 
@@ -1395,9 +1343,6 @@ public:
     void retranslateUi(QMainWindow *gestion_employe)
     {
         gestion_employe->setWindowTitle(QApplication::translate("gestion_employe", "MainWindow", Q_NULLPTR));
-        label_13->setText(QApplication::translate("gestion_employe", "Login", Q_NULLPTR));
-        label_14->setText(QApplication::translate("gestion_employe", "Password", Q_NULLPTR));
-        pb_login->setText(QApplication::translate("gestion_employe", "LOGIN", Q_NULLPTR));
         groupBox_3->setTitle(QApplication::translate("gestion_employe", "Menu", Q_NULLPTR));
         label_38->setText(QApplication::translate("gestion_employe", "EMPLOYE", Q_NULLPTR));
         Iheb->setText(QString());

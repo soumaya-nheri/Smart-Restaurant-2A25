@@ -48,10 +48,7 @@ public:
         MainWindow->setStyleSheet(QStringLiteral("background-color:white;"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        centralWidget->setStyleSheet(QLatin1String("QWidget {background-repeat: no-repeat;\n"
-"\n"
-"\n"
-"background-image: url(:/Files/test2.jpg);}"));
+        centralWidget->setStyleSheet(QStringLiteral(""));
         pushButton_6 = new QPushButton(centralWidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         pushButton_6->setGeometry(QRect(290, 50, 251, 61));
@@ -171,12 +168,27 @@ public:
         toolButton = new QToolButton(centralWidget);
         toolButton->setObjectName(QStringLiteral("toolButton"));
         toolButton->setGeometry(QRect(10, 10, 41, 41));
-        toolButton->setStyleSheet(QStringLiteral("background-image: url(:/Files/settings.png);"));
+        toolButton->setStyleSheet(QStringLiteral("background-image: url(:/Files/video1.png);"));
         toolButton_2 = new QToolButton(centralWidget);
         toolButton_2->setObjectName(QStringLiteral("toolButton_2"));
-        toolButton_2->setGeometry(QRect(70, 10, 71, 71));
-        toolButton_2->setStyleSheet(QStringLiteral("background-image: url(:/Files/icons8-video-64.png);"));
+        toolButton_2->setGeometry(QRect(80, 10, 41, 41));
+        toolButton_2->setStyleSheet(QLatin1String("QToolButton{\n"
+"	background-image: url(:/Files/video1.png);\n"
+"\n"
+"width: 25px; \n"
+"	height:30px;\n"
+"\n"
+"border:none;\n"
+"	}"));
         MainWindow->setCentralWidget(centralWidget);
+        pushButton_6->raise();
+        pushButton_7->raise();
+        pushButton_8->raise();
+        pushButton_9->raise();
+        pushButton_10->raise();
+        pushButton_11->raise();
+        toolButton_2->raise();
+        toolButton->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 831, 22));
@@ -203,7 +215,7 @@ public:
         pushButton_10->setText(QApplication::translate("MainWindow", "Gestion de Revenue", Q_NULLPTR));
         pushButton_11->setText(QApplication::translate("MainWindow", "Gestion de Promotion", Q_NULLPTR));
         toolButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
-        toolButton_2->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        toolButton_2->setText(QString());
     } // retranslateUi
 
 };

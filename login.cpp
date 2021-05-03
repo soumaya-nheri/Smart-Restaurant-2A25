@@ -7,6 +7,20 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
+
+    animation= new  QPropertyAnimation (ui->logo,"geometry");
+    animation->setDuration(3000);
+    animation->setStartValue((ui->logo->geometry()));
+      animation->setEndValue(QRect(50,50,50,50));
+
+ QEasingCurve curve;
+ curve.setType(QEasingCurve::OutCurve);
+ //animation->setEasingCurve(curve);
+ //curve.setAmplitude(2.00);
+ //curve.setOvershoot(1.30);
+ curve.setPeriod(0.50);
+ animation->setLoopCount(5);
+  animation->start();
 }
 
 login::~login()
@@ -26,7 +40,7 @@ void login::on_pb_login_clicked()
                        // musicAdd.play();
        // ui->sw_main->setCurrentIndex(1);
         MainWindow *o=new MainWindow();
-              o->show();
+             o->show();
     }
     else {
         QMessageBox::critical(nullptr, QObject::tr("LOGIN FAILED"),

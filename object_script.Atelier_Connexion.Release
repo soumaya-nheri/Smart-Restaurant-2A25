@@ -16,6 +16,7 @@ INPUT(
 ./release/ingredient.o
 ./release/liv.o
 ./release/livreur.o
+./release/login.o
 ./release/main.o
 ./release/mainwindow.o
 ./release/connection.o
@@ -47,6 +48,7 @@ INPUT(
 ./release/moc_gestion_revenue.o
 ./release/moc_historique.o
 ./release/moc_historique1.o
+./release/moc_login.o
 ./release/moc_mainwindow.o
 ./release/moc_emailaddress.o
 ./release/moc_mimeattachment.o

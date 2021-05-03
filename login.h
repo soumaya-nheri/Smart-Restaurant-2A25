@@ -1,6 +1,6 @@
 #ifndef LOGIN_H
 #define LOGIN_H
-
+#include<QPropertyAnimation>
 #include <QMainWindow>
 #include"profils.h"
 namespace Ui {
@@ -21,6 +21,7 @@ private slots:
 private:
     Ui::login *ui;
      Profils P;
+         QPropertyAnimation *animation;
 };
 
 #endif // LOGIN_H

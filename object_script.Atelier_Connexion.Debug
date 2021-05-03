@@ -16,6 +16,7 @@ INPUT(
 ./debug/ingredient.o
 ./debug/liv.o
 ./debug/livreur.o
+./debug/login.o
 ./debug/main.o
 ./debug/mainwindow.o
 ./debug/connection.o
@@ -47,6 +48,7 @@ INPUT(
 ./debug/moc_gestion_revenue.o
 ./debug/moc_historique.o
 ./debug/moc_historique1.o
+./debug/moc_login.o
 ./debug/moc_mainwindow.o
 ./debug/moc_emailaddress.o
 ./debug/moc_mimeattachment.o

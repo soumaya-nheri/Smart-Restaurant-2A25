@@ -42,8 +42,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    gestion_client *c=new gestion_client();
-          c->show();
+
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -85,4 +84,10 @@ void MainWindow::on_pushButton_7_clicked()
 {
     gestion_produit *f=new gestion_produit();
           f->show();
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    gestion_client *c=new gestion_client();
+          c->show();
 }

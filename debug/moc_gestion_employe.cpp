@@ -186,7 +186,7 @@ void gestion_employe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 10: _t->on_tri_emp_3_clicked(); break;
         case 11: _t->on_tri_emp_4_clicked(); break;
         case 12: _t->on_chercher_clicked(); break;
-        case 13: _t->on_pb_login_clicked(); break;
+
         case 14: _t->on_le_search_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 15: _t->on_pb_ajout_clicked(); break;
         case 16: _t->on_pb_supp_clicked(); break;

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     Connection c;
     bool test=c.createconnect();
-     //MainWindow w;
+    // MainWindow w;
     login l;
     if(test)
 

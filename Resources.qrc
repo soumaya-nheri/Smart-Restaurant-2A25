@@ -30,5 +30,11 @@
         <file>test2.jpg</file>
         <file>icons8-video-64.png</file>
         <file>logo.png</file>
+        <file>logo.jpg</file>
+        <file>logo3.jpg</file>
+        <file>logotest.jpg</file>
+        <file>icons8-play-50.png</file>
+        <file>video.png</file>
+        <file>video1.png</file>
     </qresource>
 </RCC>

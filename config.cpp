@@ -261,23 +261,7 @@ void config::on_stop_media_clicked()
 
 void config::on_mute_media_clicked()
 {
-    if (ui->mute_media->text() == "Mute")
 
-    {
-
-        mMediaPlayer->setMuted(true);
-
-        ui->mute_media->setText("Unmute");
-
-    }
-
-    else {
-
-        mMediaPlayer->setMuted(false);
-
-        ui->mute_media->setText("Mute");
-
-    }
 }
 
 void config::on_volume_media_valueChanged(int value)
@@ -430,3 +414,28 @@ void config::on_logout_button_clicked()
 }
 
 
+
+
+
+
+
+void config::on_mute_media_2_clicked()
+{
+    if (ui->mute_media->text() == "Mute")
+
+    {
+
+        mMediaPlayer->setMuted(true);
+
+        ui->mute_media->setText("Unmute");
+
+    }
+
+    else {
+
+        mMediaPlayer->setMuted(false);
+
+        ui->mute_media->setText("Mute");
+
+    }
+}

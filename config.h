@@ -75,6 +75,9 @@ private slots:
 
     void on_imprimer_clicked();
 
+
+    void on_mute_media_2_clicked();
+
 private:
     Ui::config *ui;
 

@@ -6,6 +6,7 @@
 
 QT       += core gui sql
 QT       +=  printsupport
+QT       += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,29 +27,41 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
     client.cpp \
     commande.cpp \
     connection.cpp \
+    gestion_client.cpp \
     ingredient.cpp \
         main.cpp \
     mainwindow.cpp \
     notif.cpp \
-    reservation.cpp
+    qcustomplot.cpp \
+    reservation.cpp \
+    seconddialog.cpp \
+    tableprinter.cpp
 
 
 HEADERS += \
+    arduino.h \
     client.h \
     commande.h \
     connection.h \
+    gestion_client.h \
     ingredient.h \
     mainwindow.h \
        connection.h \
     notif.h \
-    reservation.h
+    qcustomplot.h \
+    reservation.h \
+    seconddialog.h \
+    tableprinter.h
 
 
 FORMS += \
-        mainwindow.ui
+        gestion_client.ui \
+        mainwindow.ui \
+        seconddialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

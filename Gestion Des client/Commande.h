@@ -10,22 +10,24 @@ class Commande
 {
 public:
     Commande();
-    Commande(int,int,QString);
+    Commande(int,int,QString,int);
     //getter
     int getid_client();
     int getid_commande();
      QString getdescription();
+     int getid_prix();
       //setter
     void setid_client(int);
     void setid_commande(int);
     void setdescription(QString);
+    void setprix(int);
 
 
     //methode
      bool ajoutercommande();
      QSqlQueryModel* affichercommande();
     bool supprimercommande(int);
-    bool modifiercommande(int,int,QString);
+    bool modifiercommande(int,int,QString,int);
 //QStringList liste();
 // Menu recherche_Id(int);
   QSqlQueryModel* triercommande();
@@ -38,6 +40,7 @@ private:
     int id_client;
     int id_commande;
      QString description;
+     int prix;
 
 };
 

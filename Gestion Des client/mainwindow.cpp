@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include"ingredient.h"
 #include"client.h"
 #include"reservation.h"
 #include"notif.h"
@@ -416,8 +415,9 @@ void MainWindow::on_BAmenu_13_clicked()
     int id_client=ui->lineEdit->text().toInt();
     int id_commande=ui->lineEdit_2->text().toInt();
      QString description=ui->lineEdit_3->text();
+     int prix=ui->lineEdit_10->text().toInt();
 
-     Commande C( id_client,id_commande, description);
+     Commande C( id_client,id_commande, description,prix);
      bool test= C.ajoutercommande();
      if(test)
      {
@@ -428,6 +428,7 @@ void MainWindow::on_BAmenu_13_clicked()
          ui->lineEdit->setText("");
           ui->lineEdit_2->setText("");
           ui->lineEdit_3->setText("");
+            ui->lineEdit_10->setText("");
 
 }
      else {
@@ -458,6 +459,7 @@ void MainWindow::on_tab_menu_5_activated(const QModelIndex &index)
     ui->lineEdit_6->setText( ui->tab_menu_5->model()->data(ui->tab_menu_5->model()->index(ui->tab_menu_5->selectionModel()->currentIndex().row(),0)).toString() );
       ui->lineEdit_4->setText( ui->tab_menu_5->model()->data(ui->tab_menu_5->model()->index(ui->tab_menu_5->selectionModel()->currentIndex().row(),1)).toString() );
     ui->lineEdit_5->setText(ui->tab_menu_5->model()->data(ui->tab_menu_5->model()->index(ui->tab_menu_5->selectionModel()->currentIndex().row(),2)).toString() );
+    ui->lineEdit_7->setText( ui->tab_menu_5->model()->data(ui->tab_menu_5->model()->index(ui->tab_menu_5->selectionModel()->currentIndex().row(),3)).toString() );
 
 }
 void MainWindow::on_modifmenub_5_clicked()
@@ -465,10 +467,11 @@ void MainWindow::on_modifmenub_5_clicked()
     int id_client=ui->lineEdit_6->text().toInt();
     int id_commande=ui->lineEdit_4->text().toInt();
     QString description=ui->lineEdit_5->text();
+    int prix=ui->lineEdit_7->text().toInt();
 
-                  Commande C(id_client, id_commande,description);
+                  Commande C(id_client, id_commande,description,prix);
 
-         bool test = C.modifiercommande(id_client, id_commande,description);
+         bool test = C.modifiercommande(id_client, id_commande,description,prix);
 
 
          if(test)

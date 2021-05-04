@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>promointer</class>
+ <widget class="QDialog" name="promointer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>890</width>
+    <height>662</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>871</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Ajouter Promotion</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>110</y>
+       <width>551</width>
+       <height>391</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Ajouter Promotion</string>
+     </property>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>95</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Menu :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>194</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nouveau prix :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>161</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pourcentage :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>128</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ancien Prix :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="AjouterBouton">
+      <property name="geometry">
+       <rect>
+        <x>255</x>
+        <y>275</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ajouter</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>226</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Duree :</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="duree">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>225</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="Prixap">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>193</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nomprod">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>97</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Prixav">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>129</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Pourcentage">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>161</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Modifier Promotion</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>120</y>
+       <width>391</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Modifier Promotion</string>
+     </property>
+     <widget class="QComboBox" name="comboBox_modif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>20</y>
+        <width>121</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>188</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Duree :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>156</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nouveau prix :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>124</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pourcentage :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>92</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ancien Prix :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Menu :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="pourcentagemodif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>125</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="dureemodif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>189</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="anciepmodif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>93</y>
+        <width>256</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="nouvpmodif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>157</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_modif">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>240</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="nommodif">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>61</y>
+        <width>256</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Supprimer Promtion</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>130</y>
+       <width>461</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Supprimer Promotion</string>
+     </property>
+     <widget class="QComboBox" name="comboBox_supp">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>17</y>
+        <width>121</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>12</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID Promotion</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="SupprimerBouton">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>240</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Supprimer</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>126</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pourcentage :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>62</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Menu :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>94</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ancien Prix :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>158</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nouveau prix :</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="Nomval">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>62</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="anciepval">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>94</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="pourcentageval">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>126</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="nouvpval">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>158</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="dureeval">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>190</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Duree :</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Afficher Promotion</string>
+    </attribute>
+    <widget class="QTableView" name="tablemodifier">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>811</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>154</y>
+       <width>47</width>
+       <height>14</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tri par :</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="tricombo">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>150</y>
+       <width>131</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>150</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Recherche :</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rechercheav">
+     <property name="geometry">
+      <rect>
+       <x>311</x>
+       <y>144</y>
+       <width>251</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PDF">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>470</y>
+       <width>131</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>IMPRIMER PDF</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
